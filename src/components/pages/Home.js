@@ -1,10 +1,10 @@
-import AppNavBar from "../utils/AppNavBar";
-import AppBar from "../utils/AppNavBar";
+import AppNavBar from "../utils/NavigationBar/AppNavBar";
+import AppBar from "../utils/NavigationBar/AppNavBar";
 
 const Home = () => {
   return (
     <div>
-      <AppNavBar />
+    Home
     </div>
   );
 };
