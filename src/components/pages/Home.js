@@ -1,6 +1,12 @@
+import AppNavBar from "../utils/AppNavBar";
+import AppBar from "../utils/AppNavBar";
+
 const Home = () => {
-    console.log("hi form home")
-  return <div>Hi from Home</div>;
+  return (
+    <div>
+      <AppNavBar />
+    </div>
+  );
 };
 
 export default Home;
