@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import { Outlet } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
-import theme from "./../../../Styles/ThemConfig";
+import theme from "../../../../Styles/ThemConfig";
 
 const pages = ["Services", "Products", "Donar", "Events", "About us"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
