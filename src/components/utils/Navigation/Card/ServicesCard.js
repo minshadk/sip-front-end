@@ -4,17 +4,24 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import PublishIcon from "@mui/icons-material/Publish";
+
+// icons
+import AccessibleIcon from '@mui/icons-material/Accessible';
 
 export default function ServicesCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
+        {/* <CardMedia
+          // component="img"
+          // height="140"
+          // image="/static/images/cards/contemplative-reptile.jpg"
+          // alt="green iguana"
+        /> */}
+        <CardMedia>
+          <PublishIcon />
+        </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Lizard
