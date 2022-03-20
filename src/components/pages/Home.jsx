@@ -5,13 +5,14 @@ import { styled, Toolbar } from "@mui/material";
 // Custom compoents
 import AppNavBar from "../utils/Navigation/NavigationBar/AppNavBar";
 import AppBar from "../utils/Navigation/NavigationBar/AppNavBar";
-import ServicesCard from "../utils/Card/ServicesCard";
+import ServicesCard from "../utils/Cards/ServicesCard";
 import { Test } from "../../Assets/Images/Test";
 
 // Importing images
 import HandsShakeImgae from "../../Assets/Images/handsshake.jpg";
 import BloodDonateing from "../../Assets/Images/bloodtaking.jpg";
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";
+import EventsCard from "./../utils/Cards/Events";
 
 export const ContentWrapper = styled(Box)(() => ({
   width: "100vw",
@@ -155,7 +156,43 @@ const Home = () => {
             <img src={HelpingOthers} height="600px" />
           </Grid>
         </Grid>
+        {/* Events */}
+        <Box>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            sx={{ paddingY: 8 }}
+          >
+            <Grid item sx={{ paddingY: 5}}>
+              <Typography variant="h4">Our services</Typography>
+            </Grid>
+            <Grid item>
+              <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={{ xs: 2, md: 3, lg: 30 }}
+              >
+                <Grid item xs={12} sm={4} md={4} lg={4}>
+                  <EventsCard />
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}>
+                  <EventsCard />
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}>
+                  <EventsCard />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
       </Container>
+      <Box sx={{backgroundColor : "#1380c2",minHeight:300}}>
+
+      </Box>
     </ContentWrapper>
   );
 };
