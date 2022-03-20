@@ -40,7 +40,7 @@ const AppNavBar = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <AppBar position="static">
           <Container maxWidth="xl">
             <Toolbar disableGutters>
@@ -145,7 +145,7 @@ const AppNavBar = () => {
           </Container>
         </AppBar>
         <Outlet />
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 
 const Colors = {
-  primary: "#333",
+  primary: "#fff",
   secondary: "#95defb"
 };
 
@@ -10,7 +10,7 @@ const theme = createTheme({
     primary: {
       main: Colors.primary
     },
-    secondary: {main:Colors.secondary}
+    secondary: { main: Colors.secondary }
   }
 });
 
