@@ -3,36 +3,19 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { styled, Toolbar } from "@mui/material";
 
 // Custom compoents
-import AppNavBar from "../utils/Navigation/NavigationBar/AppNavBar";
-import AppBar from "../utils/Navigation/NavigationBar/AppNavBar";
+import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
-import { Test } from "../../Assets/Images/Test";
+import EventsCard from "./../utils/Cards/Events";
 
 // Importing images
 import HandsShakeImgae from "../../Assets/Images/handsshake.jpg";
 import BloodDonateing from "../../Assets/Images/bloodtaking.jpg";
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";
-import EventsCard from "./../utils/Cards/Events";
-
-export const ContentWrapper = styled(Box)(() => ({
-  width: "100vw",
-  height: "100vh"
-  // display: "flex",
-  // justifyContent: "center",
-  // alignItems: "center",
-  // background: "rgba(30,30,30)"
-}));
 
 const Home = () => {
   return (
     // Landing
-    // <Box
-    //   sx={{
-    //     backgroundColor: "#ededed",
-    //     height:"100vh"
-    //   }}
-    // >
-    <ContentWrapper>
+    <PageWrapper>
       <Container maxWidth="xl">
         <Box>
           <Grid container>
@@ -44,7 +27,7 @@ const Home = () => {
                   marginBottom: 25
                 }}
               >
-                we rise by liftng others
+                Products For Better World
               </Typography>
               <Typography variant="h5">
                 we are in a mission to help the helpless.this is the Best Way To
@@ -89,7 +72,8 @@ const Home = () => {
 
           <Grid
             container
-            spacing={{ xs: 2, md: 3 }}
+            // spacing={{ xs: 2, md: 3 }}
+            spacing={{ xs: 2, md: 3, lg: 15 }}
             sx={{ paddingTop: 8 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
@@ -157,43 +141,39 @@ const Home = () => {
           </Grid>
         </Grid>
         {/* Events */}
-        <Box>
-          <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            sx={{ paddingY: 8 }}
-          >
-            <Grid item sx={{ paddingY: 5}}>
-              <Typography variant="h4">Our services</Typography>
-            </Grid>
-            <Grid item>
-              <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={{ xs: 2, md: 3, lg: 30 }}
-              >
-                <Grid item xs={12} sm={4} md={4} lg={4}>
-                  <EventsCard />
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}>
-                  <EventsCard />
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}>
-                  <EventsCard />
-                </Grid>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ paddingY: 8 }}
+        >
+          <Grid item sx={{ paddingY: 5 }}>
+            <Typography variant="h4">Our services</Typography>
+          </Grid>
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              spacing={{ xs: 2, md: 3, lg: 30 }}
+            >
+              <Grid item xs={12} sm={4} md={4} lg={4}>
+                <EventsCard />
+              </Grid>
+              <Grid item xs={12} sm={4} md={4} lg={4}>
+                <EventsCard />
+              </Grid>
+              <Grid item xs={12} sm={4} md={4} lg={4}>
+                <EventsCard />
               </Grid>
             </Grid>
           </Grid>
-        </Box>
+        </Grid>
       </Container>
-      <Box sx={{backgroundColor : "#1380c2",minHeight:300}}>
-
-      </Box>
-    </ContentWrapper>
+      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }}></Box>
+    </PageWrapper>
   );
 };
 
