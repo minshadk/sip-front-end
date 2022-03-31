@@ -5,12 +5,14 @@ import AppNavBar from "./components/utils/Navigation/NavigationBar/AppNavBar";
 import Product from "./components/pages/Product";
 import Events from "./components/pages/Events";
 import Login from "./components/pages/Login";
+import SingUp from "./components/pages/SingUp";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/singup" element={<SingUp />} />
         <Route path="/" element={<AppNavBar />}>
           <Route path="/home" element={<Home />} />
           <Route path="/product" element={<Product />} />

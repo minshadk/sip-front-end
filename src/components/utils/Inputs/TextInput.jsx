@@ -31,6 +31,7 @@ export default function TextInput(props) {
       fullWidth
       onChange={handleTextInputChange}
       InputLabelProps={{ shrink: textValue }}
+      sx={{minWidth:400}}
     />
   )
 }
