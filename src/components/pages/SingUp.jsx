@@ -25,8 +25,6 @@ export default function SingUp() {
       email,
       password
     };
-    console.log(userData);
-    console.log("Submit handle is called");
     axios
       .post(baseURL, 
         userData
