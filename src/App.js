@@ -6,6 +6,8 @@ import Product from "./components/pages/Product";
 import Events from "./components/pages/Events";
 import Login from "./components/pages/Login";
 import SingUp from "./components/pages/SingUp";
+import SideBar from "./components/utils/Navigation/Sidebar/SideBar";
+import ProductAdmin from "./components/pages/Admin/ProductAdmin";
 
 function App() {
   return (
@@ -13,10 +15,13 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/singup" element={<SingUp />} />
-        <Route path="/" element={<AppNavBar />}>
+        {/* <Route path="/" element={<AppNavBar />}>
           <Route path="/home" element={<Home />} />
           <Route path="/product" element={<Product />} />
           <Route path="/events" element={<Events />} />
+        </Route> */}
+        <Route path="/" element={<SideBar />}>
+          <Route path="/product" element={<ProductAdmin />} />
         </Route>
       </Routes>
     </BrowserRouter>
