@@ -19,10 +19,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import sideBarConfig from './SideBarConfig';
 
 const drawerWidth = 240;
 
-const sideBarConfig = ["Store","Blood Bonation", "Service","Donares"]
+const sideBarConfigs = ["Store","Blood Bonation", "Service","Donares"]
+
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -120,12 +122,12 @@ export default function SideBar() {
         </DrawerHeader>
         <Divider />
         <List>
-          {sideBarConfig.map((text, index) => (
-            <ListItem button key={text}>
+          {sideBarConfig.map((page, index) => (
+            <ListItem button key={page.title}>
               {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon> */}
-              <ListItemText primary={text} />
+              <ListItemText primary={page.title} />
             </ListItem>
           ))}
         </List>
