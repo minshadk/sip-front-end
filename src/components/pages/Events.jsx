@@ -5,7 +5,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 //  Importing Custom Components
 import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
-import EventsCard from "./../utils/Cards/Events";
+import EventsCard from "../utils/Cards/EventsCard";
 
 // Importing images
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";

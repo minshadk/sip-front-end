@@ -19,9 +19,7 @@ export default function FormWrapper(props) {
             minHeight: 500,
             minWidth: 400,
             padding:5,
-            // display: "flex",
-            // justifyContent: "center",
-            // alignItems: "center"
+            maxWidth:600,
           }}
         >
           {props.children}

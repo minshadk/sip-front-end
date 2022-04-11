@@ -1,10 +1,10 @@
 const sideBarConfig = [
   { title: "Store", path: "/product" },
-  { title: "StoreOrder", path: "/storeOrder" },
-  { title: "Blood Donation", path: "/bloodDonation" },
+  { title: "StoreOrder", path: "/productOrder" },
+  { title: "Blood Donation Request", path: "/bloodDonationRequest" },
+  { title: "Donare", path: "/donare" },
   { title: "Service", path: "/service" },
   { title: "ServiceRequest", path: "/serviceRequest" },
-  { title: "Donare", path: "/donare" }
 ];
 
-export default sideBarConfig
+export default sideBarConfig  

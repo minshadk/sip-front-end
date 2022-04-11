@@ -5,7 +5,7 @@ import { styled, Toolbar } from "@mui/material";
 // Custom compoents
 import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
-import EventsCard from "./../utils/Cards/Events";
+import EventsCard from "../utils/Cards/EventsCard";
 
 // Importing images
 import HandsShakeImgae from "../../Assets/Images/handsshake.jpg";
@@ -77,22 +77,22 @@ const Home = () => {
             sx={{ paddingTop: 8 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            <Grid item xs={2} sm={4} md={4}>
+            <Grid item xs={2} sm={4} md={4} >
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4}>
+            <Grid item xs={2} sm={4} md={4} >
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4}>
+            <Grid item xs={2} sm={4} md={4} >
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4}>
+            <Grid item xs={2} sm={4} md={4} >
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4}>
+            <Grid item xs={2} sm={4} md={4} >
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4}>
+            <Grid item xs={2} sm={4} md={4} >
               <ServicesCard />
             </Grid>
           </Grid>
