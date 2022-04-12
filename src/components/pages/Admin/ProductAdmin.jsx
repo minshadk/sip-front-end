@@ -8,16 +8,21 @@ import { PageWrapper } from "../../utils/PageWrapper";
 import EventsCard from "./../../utils/Cards/EventsCard";
 
 import productService from "../../../services/productService";
+import ImageCard from "./../../utils/Cards/ImageCard";
 
 export default function ProductAdmin() {
+  const [products, setProducts] = useState();
+
   useEffect(() => {
-    const getAllProduct = async () => {
+    const getAllProducts = async () => {
       console.log("funciton called");
       const response = await productService.getAllProduct();
-      console.log(response.data.products);
+      setProducts(response.data.products);
     };
 
-    getAllProduct();
+    getAllProducts();
+    console.log(products);
+    // console.log(products[1])
   });
   return (
     <PageWrapper>
@@ -39,24 +44,16 @@ export default function ProductAdmin() {
           sx={{ paddingTop: 8 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          <Grid item xs={2} sm={4} md={3} lg={2}>
-            <EventsCard />
-          </Grid>
-          <Grid item xs={2} sm={4} md={3} lg={2}>
-            <EventsCard />
-          </Grid>
-          <Grid item xs={2} sm={4} md={3} lg={2}>
-            <EventsCard />
-          </Grid>
-          <Grid item xs={2} sm={4} md={3} lg={2}>
-            <EventsCard />
-          </Grid>
-          <Grid item xs={2} sm={4} md={3} lg={2}>
-            <EventsCard />
-          </Grid>
-          <Grid item xs={2} sm={4} md={3} lg={2}>
-            <EventsCard />
-          </Grid>
+          {products &&
+            products.map((product, index) => (
+              <Grid item xs={12} sm={6} md={3}>
+                <ImageCard
+                  title={product.name}
+                  description={product.description}
+                />
+                {/* <Dptcard data={department} index={index} /> */}
+              </Grid>
+            ))}
         </Grid>
       </Box>
     </PageWrapper>
