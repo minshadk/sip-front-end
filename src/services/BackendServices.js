@@ -2,6 +2,20 @@ import axios from "axios";
 
 const baseURL = "http://localhost:3001/";
 
+//get request
+const get = async (path, headers = {}, params = {}) => {
+  //generating url
+  const url = `${baseURL}${path}`;
+
+  //generating the request
+  const response = await axios.get(
+    url
+    // , _generateParams(headers, params)
+  );
+
+  return response.data;
+};
+
 //post request
 const post = async (path, data = {}, headers = {}, params = {}) => {
   //generating url
@@ -18,7 +32,7 @@ const post = async (path, data = {}, headers = {}, params = {}) => {
 };
 
 const BackendService = {
-  // get,
+  get,
   post
   // patch,
   // destroy,

@@ -5,8 +5,13 @@ const createProduct = async (data) => {
   return BackendServices.post("product/",  data );
 };
 
+const getAllProduct = async (data) => {
+  return BackendServices.get("product")
+}
+
 const productService = {
-  createProduct
+  createProduct,
+  getAllProduct
 };
 
 export default productService;

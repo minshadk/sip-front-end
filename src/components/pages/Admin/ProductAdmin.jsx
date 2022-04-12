@@ -1,11 +1,24 @@
+import { useState, useEffect } from "react";
+
 import { Box, Typography, Grid, Stack } from "@mui/material";
-import React from "react";
+
 import AddButton from "../../utils/Button/AddButton";
 import ServicesCard from "../../utils/Cards/ServicesCard";
 import { PageWrapper } from "../../utils/PageWrapper";
 import EventsCard from "./../../utils/Cards/EventsCard";
 
+import productService from "../../../services/productService";
+
 export default function ProductAdmin() {
+  useEffect(() => {
+    const getAllProduct = async () => {
+      console.log("funciton called");
+      const response = await productService.getAllProduct();
+      console.log(response.data.products);
+    };
+
+    getAllProduct();
+  });
   return (
     <PageWrapper>
       <Stack
