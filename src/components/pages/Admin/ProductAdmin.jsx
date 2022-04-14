@@ -23,7 +23,7 @@ export default function ProductAdmin() {
     getAllProducts();
     console.log(products);
     // console.log(products[1])
-  });
+  },[]);
   return (
     <PageWrapper>
       <Stack

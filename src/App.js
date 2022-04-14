@@ -14,6 +14,7 @@ import ServiceRequestAdmin from "./components/pages/Admin/ServiceRequestAdmin";
 import DonareAdmin from "./components/pages/Admin/DonareAdmin";
 import BloodDonationAdmin from "./components/pages/Admin/BloodDonationAdmin";
 import AddProduct from "./components/pages/Admin/AddProduct";
+import SingleProductAdmin from './components/pages/Admin/SingleProductAdmin';
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
           />
           <Route path="/donare" element={<DonareAdmin />} />
           <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/singleProductAdmin" element={<SingleProductAdmin />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
