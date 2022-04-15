@@ -2,20 +2,21 @@ import { useState, useEffect } from "react";
 
 import { Box, Typography, Grid, Stack } from "@mui/material";
 
+//  Importing Custom Components
+import { PageWrapper } from "../../utils/PageWrapper";
 import AddButton from "../../utils/Button/AddButton";
 import ServicesCard from "../../utils/Cards/ServicesCard";
-import { PageWrapper } from "../../utils/PageWrapper";
 import EventsCard from "./../../utils/Cards/EventsCard";
+import ImageCard from "./../../utils/Cards/ImageCard";
+
 
 import productService from "../../../services/productService";
-import ImageCard from "./../../utils/Cards/ImageCard";
 
 export default function ProductAdmin() {
   const [products, setProducts] = useState();
 
   useEffect(() => {
     const getAllProducts = async () => {
-      console.log("funciton called");
       const response = await productService.getAllProduct();
       setProducts(response.data.products);
     };

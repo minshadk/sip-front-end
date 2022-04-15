@@ -5,7 +5,7 @@ const createProduct = async (data) => {
   return BackendServices.post("product/",  data );
 };
 
-const getAllProduct = async (data) => {
+const getAllProduct = async () => {
   return BackendServices.get("product")
 }
 

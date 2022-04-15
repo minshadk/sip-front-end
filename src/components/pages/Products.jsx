@@ -11,6 +11,7 @@ import EventsCard from "../utils/Cards/EventsCard";
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";
 
 export default function Products() {
+  
   return (
     <PageWrapper>
       <Container maxWidth="xl">

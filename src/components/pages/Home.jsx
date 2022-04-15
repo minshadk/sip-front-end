@@ -1,8 +1,9 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 
+import { Box, Container, Grid, Typography } from "@mui/material";
 import { styled, Toolbar } from "@mui/material";
 
-// Custom compoents
+// Custom components
 import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
 import EventsCard from "../utils/Cards/EventsCard";
@@ -12,7 +13,45 @@ import HandsShakeImgae from "../../Assets/Images/handsshake.jpg";
 import BloodDonateing from "../../Assets/Images/bloodtaking.jpg";
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";
 
+// Importing backend services
+import serviceServices from "../../services/serviceServices";
+
+import axios from "axios";
+import ImageCard from './../utils/Cards/ImageCard';
+const baseURL = "http://localhost:3001/";
+
+
 const Home = () => {
+  const [services, setServices] = useState();
+
+  useEffect(() => {
+    // const getAllServices = async () => {
+    //   console.log("funciton called");
+    //   const response = await serviceServices.getAllServices;
+    //   // console.log(response)
+    //   setServices(response);
+    // };
+
+    // getAllServices();
+
+    const get = async (path) => {
+      //generating url
+      const url = `${baseURL}${path}`;
+    
+      //generating the request
+      const response = await axios.get(
+        url
+      );
+    
+      // return response.data;
+      // console.log(response.data)
+      setServices(response.data.data.services);
+
+    };
+    get("service")
+  }, []);
+  console.log(services);
+
   return (
     // Landing
     <PageWrapper>
@@ -77,24 +116,34 @@ const Home = () => {
             sx={{ paddingTop: 8 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            <Grid item xs={2} sm={4} md={4} >
+            {/* <Grid item xs={2} sm={4} md={4}>
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4} >
+            <Grid item xs={2} sm={4} md={4}>
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4} >
+            <Grid item xs={2} sm={4} md={4}>
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4} >
+            <Grid item xs={2} sm={4} md={4}>
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4} >
+            <Grid item xs={2} sm={4} md={4}>
               <ServicesCard />
             </Grid>
-            <Grid item xs={2} sm={4} md={4} >
+            <Grid item xs={2} sm={4} md={4}>
               <ServicesCard />
-            </Grid>
+            </Grid> */}
+            {services &&
+            services.map((service, index) => (
+              <Grid item xs={2} sm={4} md={4}>
+                <ImageCard
+                  title={service.name}
+                  description={service.description}
+                />
+                {/* <Dptcard data={department} index={index} /> */}
+              </Grid>
+            ))}
           </Grid>
         </Grid>
         {/* Blood Donation */}
@@ -172,7 +221,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
-      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }}></Box>
+      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }} />
     </PageWrapper>
   );
 };
