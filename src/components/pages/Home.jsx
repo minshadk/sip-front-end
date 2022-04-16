@@ -24,7 +24,7 @@ const baseURL = "http://localhost:3001/";
 
 const Home = () => {
   const [services, setServices] = useState();
-  const [products,setProduct] = useState();
+  const [products, setProduct] = useState();
 
   useEffect(() => {
     // const getAllServices = async () => {
@@ -215,19 +215,24 @@ const Home = () => {
                 <EventsCard />
               </Grid> */}
               {products &&
-              products.map((product, index) =>
-                <Grid item xs={12} sm={4} md={4} lg={4}x>
-                  {/* <Link to={`/product`}> */}
-                  <ImageCard
-                    title={product.name}
-                    description={product.description}
-                    // component={Link}
-                  />
-                  {/* </Link> */}
-                </Grid>
-              )}
+                products.map((product, index) =>
+                  <Grid item xs={12} sm={4} md={4} lg={4} x>
+                    {/* <Link to={`/product`}> */}
+                    <ImageCard
+                      title={product.name}
+                      description={product.description}
+                      // component={Link}
+                    />
+                    {/* </Link> */}
+                  </Grid>
+                )}
             </Grid>
           </Grid>
+          <Stack spacing={2} direction="row" sx={{ margin: 5 }}>
+            <Button variant="outlined">
+              <Link to="/products">Read More</Link>
+            </Button>
+          </Stack>
         </Grid>
       </Container>
       <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }} />

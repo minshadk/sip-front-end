@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 
+//  Importing Custom Components
 import { PageWrapper } from "../../utils/PageWrapper";
 
 // Importing images
@@ -13,7 +14,6 @@ import serviceServices from "../../../services/serviceServices";
 
 export default function Service() {
   let { serviceId } = useParams();
-  console.log(serviceId);
 
   const [service, setService] = useState();
 

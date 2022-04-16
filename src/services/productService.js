@@ -2,16 +2,21 @@ import BackendServices from "./BackendServices";
 
 // create a new teacher
 const createProduct = async (data) => {
-  return BackendServices.post("product/",  data );
+  return BackendServices.post("product/", data);
 };
 
 const getAllProduct = async () => {
-  return BackendServices.get("product")
-}
+  return BackendServices.get("product");
+};
+
+const getProductById = async (id) => {
+  return BackendServices.get(`product/${id}`);
+};
 
 const productService = {
   createProduct,
-  getAllProduct
+  getAllProduct,
+  getProductById
 };
 
 export default productService;

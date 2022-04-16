@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 import { PageWrapper } from "../../utils/PageWrapper";
@@ -9,9 +10,24 @@ import  HelpingOthers  from "../../../Assets/Images/helpingOthers.png";
 //  Importing Custom Components
 // import { PageWrapper } from "../utils/PageWrapper";
 
-// import { PageWrapper } from "../../utils/PageWrapper";
-// import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
+// Importing backend services
+import productService from "../../../services/productService";
+
 export default function Product() {
+  let { productId } = useParams();
+
+  const [product,setProduct] = useState();
+
+  useEffect(() => {
+    const callBackendServices = async () => {
+      console.log("ITs hi");
+      const response = await productService.getProductById(productId);
+      setProduct(response.data.product);
+    };
+
+    callBackendServices()
+  }, []);
+  console.log(product)
   return (
     <PageWrapper>
       <Container maxWidth="xl">
@@ -36,17 +52,13 @@ export default function Product() {
           sx={{ marginY: 5 }}
         >
           <Typography>Minimum Order</Typography>
-          <Typography>10</Typography>
+          <Typography>{product && product.minOrder}</Typography>
           <Button variant="contained">Buy Now</Button>
         </Stack>
         <Box>
-          <Grid sx={{ fontSize: 30 }}>Product Name</Grid>
+          <Grid sx={{ fontSize: 30 }}>{product && product.name}</Grid>
           <Grid>
-            Product description img elements must have an alt prop, either with
-            meaningful text, or an empty string for decorative images
-            jsx-a11y/alt-text Line 36:21: img elements must have an alt prop,
-            either with meaningful text, or an empty string for decorative
-            images jsx-a11y/alt-text
+          {product && product.description}
           </Grid>
         </Box>
       </Container>

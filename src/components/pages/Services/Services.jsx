@@ -86,25 +86,25 @@ export default function Services() {
           <Typography variant="h2">Services</Typography>
         </Grid>
         <Grid
-            container
-            // spacing={{ xs: 2, md: 3 }}
-            spacing={{ xs: 2, md: 3, lg: 15 }}
-            sx={{ paddingTop: 8 }}
-            columns={{ xs: 4, sm: 8, md: 12 }}
-          >
-            {services &&
-              services.map((service, index) =>
-                <Grid item xs={2} sm={4} md={4}>
-                  <Link to={`/service/${service._id}`}>
-                    <ImageCard
-                      title={service.name}
-                      description={service.description}
-                      // component={Link}
-                    />
-                  </Link>
-                </Grid>
-              )}
-          </Grid>
+          container
+          // spacing={{ xs: 2, md: 3 }}
+          spacing={{ xs: 2, md: 3, lg: 15 }}
+          sx={{ paddingTop: 8 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          {services &&
+            services.map((service, index) =>
+              <Grid item xs={2} sm={4} md={4}>
+                <Link to={`/service/${service._id}`}>
+                  <ImageCard
+                    title={service.name}
+                    description={service.description}
+                    // component={Link}
+                  />
+                </Link>
+              </Grid>
+            )}
+        </Grid>
       </Container>
       <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }} />
     </PageWrapper>

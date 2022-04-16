@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { Box, Container, Grid, Typography } from "@mui/material";
 
@@ -6,12 +7,26 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { PageWrapper } from "../../utils/PageWrapper";
 import ServicesCard from "../../utils/Cards/ServicesCard";
 import EventsCard from "../../utils/Cards/EventsCard";
+import ImageCard from "../../utils/Cards/ImageCard";
+
+// Importing backend services
+import productService from "../../../services/productService";
 
 // Importing images
 import  HelpingOthers  from "../../../Assets/Images/helpingOthers.png";
 
 export default function Products() {
+  const [products, setProduct] = useState();
   
+  useEffect(() => {
+    const callBackendServices = async () => {
+      console.log("call backedn serives");
+      const response = await productService.getAllProduct();
+      setProduct(response.data.products);
+    };
+    callBackendServices();
+  },[])
+  console.log(products)
   return (
     <PageWrapper>
       <Container maxWidth="xl">
@@ -53,7 +68,7 @@ export default function Products() {
                   alignItems="center"
                   spacing={{ xs: 2, md: 3, lg: 30 }}
                 >
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
+                  {/* <Grid item xs={12} sm={4} md={4} lg={4}>
                     <EventsCard />
                   </Grid>
                   <Grid item xs={12} sm={4} md={4} lg={4}>
@@ -61,7 +76,19 @@ export default function Products() {
                   </Grid>
                   <Grid item xs={12} sm={4} md={4} lg={4}>
                     <EventsCard />
+                  </Grid> */}
+                  {products &&
+                products.map((product, index) =>
+                  <Grid item xs={12} sm={4} md={4} lg={4} x>
+                    <Link to={`/product/${product._id}`}>
+                    <ImageCard
+                      title={product.name}
+                      description={product.description}
+                      // component={Link}
+                    />
+                    </Link>
                   </Grid>
+                )}
                 </Grid>
               </Grid>
             </Grid>
