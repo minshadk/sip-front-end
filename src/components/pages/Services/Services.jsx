@@ -92,35 +92,16 @@ export default function Services() {
             sx={{ paddingTop: 8 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            {/* <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid> */}
             {services &&
               services.map((service, index) =>
                 <Grid item xs={2} sm={4} md={4}>
-                  <Link to={`/product`}>
+                  <Link to={`/service/${service._id}`}>
                     <ImageCard
                       title={service.name}
                       description={service.description}
                       // component={Link}
                     />
                   </Link>
-                  {/* <Dptcard data={department} index={index} /> */}
                 </Grid>
               )}
           </Grid>

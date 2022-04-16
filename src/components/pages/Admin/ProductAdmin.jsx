@@ -52,7 +52,6 @@ export default function ProductAdmin() {
                   title={product.name}
                   description={product.description}
                 />
-                {/* <Dptcard data={department} index={index} /> */}
               </Grid>
             ))}
         </Grid>

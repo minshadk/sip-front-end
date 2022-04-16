@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 
-//  Importing Custom Components
 import { PageWrapper } from "../../utils/PageWrapper";
-import ServicesCard from "../../utils/Cards/ServicesCard";
-import EventsCard from "../../utils/Cards/EventsCard";
 
 // Importing images
 import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
@@ -15,94 +12,61 @@ import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
 import serviceServices from "../../../services/serviceServices";
 
 
-import axios from "axios";
-const baseURL = "http://localhost:3001/";
-
 export default function Service() {
-  const [services, setServices] = useState();
+    let {serviceId} = useParams();
+    console.log(serviceId)
+
+  const [service, setService] = useState();
 
   useEffect(() => {
-    // const getAllServices = async () => {
-    //   console.log("funciton called");
-    //   const response = await serviceServices.getAllServices;
-    //   // console.log(response)
-    //   setServices(response);
-    // };
-
-    // getAllServices();
-
-    const get = async path => {
-      console.log("get function called");
-      //generating url
-      const url = `${baseURL}${path}`;
-
-      //generating the request
-      const response = await axios.get(url);
-
-      // return response.data;
-      // console.log(response.data)
-      setServices(response.data.data.services);
+    const getServiceById = async () => {
+      console.log("ITs hi");
+      const response = await serviceServices.getServiceById(serviceId);
+      console.log(response.data.service)
     };
-    get("service");
+
+    getServiceById(serviceId);
   }, []);
-  console.log(services);
+
   return (
     <PageWrapper>
       <Container maxWidth="xl">
-        <Box>
-          <Typography
-            variant="h2"
-            sx={{
-              marginTop: 25,
-              marginBottom: 25
-            }}
-          >
-            we rise by liftng others
-          </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <img
+            src={HelpingOthers}
+            //   srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            //   alt={item.title}
+            //   loading="lazy"
+          />
         </Box>
-        <Grid container>
-          <Grid item xs={12} sm={4} md={4} lg={6}>
-            <Typography variant="h6" sx={{ paddingTop: 4 }}>
-              We provide to you the best choiches for you. We provide you the
-              necassary needs for your emergency . You can get hand from us at
-              any time at any where
-            </Typography>
+        <Box>
+          <Grid sx={{ fontSize: 30 }}>Product Name</Grid>
+          <Grid>
+            Product description img elements must have an alt prop, either with
+            meaningful text, or an empty string for decorative images
+            jsx-a11y/alt-text Line 36:21: img elements must have an alt prop,
+            either with meaningful text, or an empty string for decorative
+            images jsx-a11y/alt-text
           </Grid>
-          <Grid item xs={12} sm={4} md={4} lg={6}>
-            <img src={HelpingOthers} height="400px" />
-          </Grid>
-          <Box>
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              sx={{ paddingY: 8 }}
-            >
-              <Grid item>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="center"
-                  spacing={{ xs: 2, md: 3, lg: 30 }}
-                >
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <EventsCard />
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <EventsCard />
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <EventsCard />
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Box>
-        </Grid>
+          <Stack
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="center"
+            spacing={2}
+            sx={{ marginY: 5 }}
+          >
+            <Button variant="contained">Request Service</Button>
+            {/* <Button variant="outlined">Delete</Button> */}
+          </Stack>
+        </Box>
       </Container>
-      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }} />
     </PageWrapper>
   );
 }

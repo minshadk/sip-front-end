@@ -9,9 +9,14 @@ const getAllServices = async () => {
   return BackendServices.get("service");
 };
 
+const getServiceById = async (id) => {
+  return BackendServices.get(`service/${id}`);
+};
+
 const serviceServices = {
   createService,
-  getAllServices
+  getAllServices,
+  getServiceById
 };
 
 export default serviceServices;

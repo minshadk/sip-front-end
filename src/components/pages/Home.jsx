@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
 import { styled, Toolbar } from "@mui/material";
 
 // Custom components
@@ -114,38 +114,24 @@ const Home = () => {
             sx={{ paddingTop: 8 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            {/* <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid>
-            <Grid item xs={2} sm={4} md={4}>
-              <ServicesCard />
-            </Grid> */}
             {services &&
               services.map((service, index) =>
                 <Grid item xs={2} sm={4} md={4}>
-                  <Link to={`/product`}>
+                  {/* <Link to={`/product`}> */}
                     <ImageCard
                       title={service.name}
                       description={service.description}
                       // component={Link}
                     />
-                  </Link>
-                  {/* <Dptcard data={department} index={index} /> */}
+                  {/* </Link> */}
                 </Grid>
               )}
           </Grid>
+          <Stack spacing={2} direction="row" sx={{ margin: 5 }}>
+            <Button variant="outlined">
+              <Link to="/services">Read More</Link>
+            </Button>
+          </Stack>
         </Grid>
         {/* Blood Donation */}
         <Grid
