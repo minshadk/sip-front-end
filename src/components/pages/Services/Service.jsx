@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 
@@ -11,10 +11,9 @@ import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
 // Importing backend services
 import serviceServices from "../../../services/serviceServices";
 
-
 export default function Service() {
-    let {serviceId} = useParams();
-    console.log(serviceId)
+  let { serviceId } = useParams();
+  console.log(serviceId);
 
   const [service, setService] = useState();
 
@@ -22,12 +21,12 @@ export default function Service() {
     const getServiceById = async () => {
       console.log("ITs hi");
       const response = await serviceServices.getServiceById(serviceId);
-      console.log(response.data.service)
+      setService(response.data.service);
     };
 
     getServiceById(serviceId);
   }, []);
-
+  console.log(service);
   return (
     <PageWrapper>
       <Container maxWidth="xl">
@@ -47,13 +46,11 @@ export default function Service() {
           />
         </Box>
         <Box>
-          <Grid sx={{ fontSize: 30 }}>Product Name</Grid>
+          <Grid sx={{ fontSize: 30 }}>
+            {service && service.name}
+          </Grid>
           <Grid>
-            Product description img elements must have an alt prop, either with
-            meaningful text, or an empty string for decorative images
-            jsx-a11y/alt-text Line 36:21: img elements must have an alt prop,
-            either with meaningful text, or an empty string for decorative
-            images jsx-a11y/alt-text
+            {service && service.description}
           </Grid>
           <Stack
             direction="row"

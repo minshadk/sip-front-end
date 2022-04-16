@@ -17,12 +17,14 @@ import HelpingOthers from "../../Assets/Images/helpingOthers.png";
 
 // Importing backend services
 import serviceServices from "../../services/serviceServices";
+import productService from "./../../services/productService";
 
 import axios from "axios";
 const baseURL = "http://localhost:3001/";
 
 const Home = () => {
   const [services, setServices] = useState();
+  const [products,setProduct] = useState();
 
   useEffect(() => {
     // const getAllServices = async () => {
@@ -46,9 +48,17 @@ const Home = () => {
       // console.log(response.data)
       setServices(response.data.data.services);
     };
+
+    const callBackendServices = async () => {
+      console.log("call backedn serives");
+      const response = await productService.getAllProduct();
+      setProduct(response.data.products);
+    };
     get("service");
+    callBackendServices();
   }, []);
-  console.log(services);
+  // console.log(services);
+  console.log(products);
 
   return (
     // Landing
@@ -118,11 +128,11 @@ const Home = () => {
               services.map((service, index) =>
                 <Grid item xs={2} sm={4} md={4}>
                   {/* <Link to={`/product`}> */}
-                    <ImageCard
-                      title={service.name}
-                      description={service.description}
-                      // component={Link}
-                    />
+                  <ImageCard
+                    title={service.name}
+                    description={service.description}
+                    // component={Link}
+                  />
                   {/* </Link> */}
                 </Grid>
               )}
@@ -195,7 +205,7 @@ const Home = () => {
               alignItems="center"
               spacing={{ xs: 2, md: 3, lg: 30 }}
             >
-              <Grid item xs={12} sm={4} md={4} lg={4}>
+              {/* <Grid item xs={12} sm={4} md={4} lg={4}>
                 <EventsCard />
               </Grid>
               <Grid item xs={12} sm={4} md={4} lg={4}>
@@ -203,7 +213,19 @@ const Home = () => {
               </Grid>
               <Grid item xs={12} sm={4} md={4} lg={4}>
                 <EventsCard />
-              </Grid>
+              </Grid> */}
+              {products &&
+              products.map((product, index) =>
+                <Grid item xs={12} sm={4} md={4} lg={4}x>
+                  {/* <Link to={`/product`}> */}
+                  <ImageCard
+                    title={product.name}
+                    description={product.description}
+                    // component={Link}
+                  />
+                  {/* </Link> */}
+                </Grid>
+              )}
             </Grid>
           </Grid>
         </Grid>
