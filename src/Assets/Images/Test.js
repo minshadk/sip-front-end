@@ -7,7 +7,7 @@ import { styled, Toolbar } from "@mui/material";
 // import AppBar from "../utils/Navigation/NavigationBar/AppNavBar";
 // import ServicesCard from "../utils/Card/ServicesCard";
 
-export const Test = styled(Box)(() => ({
+export const ImgaeImporter = styled(Box)(() => ({
 //   width: "100vw",
 //   height: "100vh",
   // display: "flex",

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { styled, Toolbar } from "@mui/material";
@@ -7,6 +8,7 @@ import { styled, Toolbar } from "@mui/material";
 import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
 import EventsCard from "../utils/Cards/EventsCard";
+import ImageCard from "./../utils/Cards/ImageCard";
 
 // Importing images
 import HandsShakeImgae from "../../Assets/Images/handsshake.jpg";
@@ -17,9 +19,7 @@ import HelpingOthers from "../../Assets/Images/helpingOthers.png";
 import serviceServices from "../../services/serviceServices";
 
 import axios from "axios";
-import ImageCard from './../utils/Cards/ImageCard';
 const baseURL = "http://localhost:3001/";
-
 
 const Home = () => {
   const [services, setServices] = useState();
@@ -34,21 +34,19 @@ const Home = () => {
 
     // getAllServices();
 
-    const get = async (path) => {
+    const get = async path => {
+      console.log("get function called");
       //generating url
       const url = `${baseURL}${path}`;
-    
+
       //generating the request
-      const response = await axios.get(
-        url
-      );
-    
+      const response = await axios.get(url);
+
       // return response.data;
       // console.log(response.data)
       setServices(response.data.data.services);
-
     };
-    get("service")
+    get("service");
   }, []);
   console.log(services);
 
@@ -135,15 +133,18 @@ const Home = () => {
               <ServicesCard />
             </Grid> */}
             {services &&
-            services.map((service, index) => (
-              <Grid item xs={2} sm={4} md={4}>
-                <ImageCard
-                  title={service.name}
-                  description={service.description}
-                />
-                {/* <Dptcard data={department} index={index} /> */}
-              </Grid>
-            ))}
+              services.map((service, index) =>
+                <Grid item xs={2} sm={4} md={4}>
+                  <Link to={`/product`}>
+                    <ImageCard
+                      title={service.name}
+                      description={service.description}
+                      // component={Link}
+                    />
+                  </Link>
+                  {/* <Dptcard data={department} index={index} /> */}
+                </Grid>
+              )}
           </Grid>
         </Grid>
         {/* Blood Donation */}
@@ -198,7 +199,7 @@ const Home = () => {
           sx={{ paddingY: 8 }}
         >
           <Grid item sx={{ paddingY: 5 }}>
-            <Typography variant="h4">Our services</Typography>
+            <Typography variant="h4">Our Product</Typography>
           </Grid>
           <Grid item>
             <Grid

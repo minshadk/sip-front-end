@@ -2,7 +2,7 @@ import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 import Home from "./components/pages/Home";
 import AppNavBar from "./components/utils/Navigation/NavigationBar/AppNavBar";
-import Products from "./components/pages/Products";
+import Products from "./components/pages/Product/Products";
 import Events from "./components/pages/Events";
 import Login from "./components/pages/Login";
 import SingUp from "./components/pages/SingUp";
@@ -15,7 +15,9 @@ import DonareAdmin from "./components/pages/Admin/DonareAdmin";
 import BloodDonationAdmin from "./components/pages/Admin/BloodDonationAdmin";
 import AddProduct from "./components/pages/Admin/AddProduct";
 import SingleProductAdmin from "./components/pages/Admin/SingleProductAdmin";
-import Product from "./components/pages/Product";
+import Product from "./components/pages/Product/Product";
+import Service from './components/pages/Services/Service';
+import Services from './components/pages/Services/Services';
 
 function App() {
   return (
@@ -25,8 +27,11 @@ function App() {
         <Route path="/singup" element={<SingUp />} />
         <Route path="/" element={<AppNavBar />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/product" element={<Product />} />
+          {/* <Route path="/product" element={<Product />} /> */}
           <Route path="/products" element={<Products />} />
+          <Route path="/:productId" element={<Product />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/:serviceId" element={<Service />} />
           <Route path="/events" element={<Events />} />
           <Route path="/productAdmin" element={<ProductAdmin />} />
           
