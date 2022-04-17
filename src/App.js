@@ -19,6 +19,7 @@ import Product from "./components/pages/Product/Product";
 import Service from './components/pages/Services/Service';
 import Services from './components/pages/Services/Services';
 import DonateBlood from './components/pages/DonateBlood';
+import BloodDonationForm from "./components/pages/BloodDonation/BloodDonationForm";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/productAdmin" element={<ProductAdmin />} />
           <Route path="/donateBlood" element={<DonateBlood />} />
+          <Route path="/bloodDonationForm" element={<BloodDonationForm />} />
           
         </Route>
         {/* <Route path="/" element={<SideBar />}>

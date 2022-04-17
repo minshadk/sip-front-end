@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
 import { styled, Toolbar } from "@mui/material";
 
-// Custom components
+// Importing Custom components
 import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
 import EventsCard from "../utils/Cards/EventsCard";
