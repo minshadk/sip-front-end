@@ -164,6 +164,11 @@ const Home = () => {
               helps in maintaining the iron level in the body and thus reduce
               those risk.
             </Typography>
+            <Stack spacing={2} direction="row" sx={{ margin: 5 }}>
+              <Button variant="outlined">
+                <Link to="/donateBlood">Donate Blood</Link>
+              </Button>
+            </Stack>
           </Grid>
         </Grid>
         {/* Helping others */}
@@ -173,7 +178,7 @@ const Home = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item xs={12} sm={4} md={4} lg={6}>
+          <Grid item xs={12} sm={4} md={4} lg={6}>5
             <Typography variant="h4">Helping others</Typography>
             <Typography variant="h6" sx={{ paddingTop: 4 }}>
               Helping others improves social interaction, distracts people from

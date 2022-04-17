@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import { Test } from "../../../Assets/Images/Test";
+import { Test } from "../../../Assets/Images/ImageSemiAutoImport";
 // import PublishIcon from "@mui/icons-material/Publish";
 
 // importing images

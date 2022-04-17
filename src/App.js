@@ -18,6 +18,7 @@ import SingleProductAdmin from "./components/pages/Admin/SingleProductAdmin";
 import Product from "./components/pages/Product/Product";
 import Service from './components/pages/Services/Service';
 import Services from './components/pages/Services/Services';
+import DonateBlood from './components/pages/DonateBlood';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/service/:serviceId" element={<Service />} />
           <Route path="/events" element={<Events />} />
           <Route path="/productAdmin" element={<ProductAdmin />} />
+          <Route path="/donateBlood" element={<DonateBlood />} />
           
         </Route>
         {/* <Route path="/" element={<SideBar />}>
