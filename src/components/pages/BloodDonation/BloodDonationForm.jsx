@@ -12,7 +12,9 @@ export default function BloodDonationForm() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState();
   const [radius, setRadius] = useState();
-  const [location, setLocation] = useState();
+  // const [location, setLocation] = useState();
+  const [coordinates, setCoordinates] = useState();
+  console.log(localStorage.getItem('coordinates'))
   
   return (
     <FormWrapper>
@@ -84,10 +86,18 @@ export default function BloodDonationForm() {
             <TextInput
               name="location"
               label="Location"
+              textValue={coordinates}
+              setTextValue={setCoordinates}
+            />
+          </Grid>
+          {/* <Grid item xs={12} sm={12} md={12}>
+            <TextInput
+              name="location"
+              label="Location"
               textValue={location}
               setTextValue={setLocation}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
       {/* </Card> */}
