@@ -1,6 +1,5 @@
 import BackendServices from "./BackendServices";
 
-// create a new teacher
 const createService = async (data) => {
   return BackendServices.post("service/", data);
 };
