@@ -20,6 +20,7 @@ import Service from './components/pages/Services/Service';
 import Services from './components/pages/Services/Services';
 import DonateBlood from './components/pages/DonateBlood';
 import BloodDonationForm from "./components/pages/BloodDonation/BloodDonationForm";
+import Maps from "./components/map/Maps";
 
 function App() {
   return (
@@ -38,8 +39,10 @@ function App() {
           <Route path="/productAdmin" element={<ProductAdmin />} />
           <Route path="/donateBlood" element={<DonateBlood />} />
           <Route path="/bloodDonationForm" element={<BloodDonationForm />} />
+
           
         </Route>
+          <Route path="/maps" element={<Maps />} />
         {/* <Route path="/" element={<SideBar />}>
           <Route path="/product" element={<ProductAdmin />} />
           <Route path="/productOrder" element={<ProductOrder />} />
