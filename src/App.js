@@ -16,10 +16,11 @@ import BloodDonationAdmin from "./components/pages/Admin/BloodDonationAdmin";
 import AddProduct from "./components/pages/Admin/AddProduct";
 import SingleProductAdmin from "./components/pages/Admin/SingleProductAdmin";
 import Product from "./components/pages/Product/Product";
-import Service from './components/pages/Services/Service';
-import Services from './components/pages/Services/Services';
-import DonateBlood from './components/pages/DonateBlood';
+import Service from "./components/pages/Services/Service";
+import Services from "./components/pages/Services/Services";
+import DonateBlood from "./components/pages/DonateBlood";
 import BloodDonationForm from "./components/pages/BloodDonation/BloodDonationForm";
+import BloodRequestForm from "./components/pages/BloodDonation/BloodRequestForm";
 import Maps from "./components/map/Maps";
 
 function App() {
@@ -38,25 +39,24 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/productAdmin" element={<ProductAdmin />} />
           <Route path="/donateBlood" element={<DonateBlood />} />
-          <Route path="/bloodDonationForm" element={<BloodDonationForm />} />
-
-          
         </Route>
-          <Route path="/maps" element={<Maps />} />
-        {/* <Route path="/" element={<SideBar />}>
-          <Route path="/product" element={<ProductAdmin />} />
-          <Route path="/productOrder" element={<ProductOrder />} />
-          <Route path="/service" element={<ServiceAdmin />} />
-          <Route path="/serviceRequest" element={<ServiceRequestAdmin />} />
+        <Route path="/bloodDonationForm" element={<BloodDonationForm />} />
+        <Route path="/bloodRequestForm" element={<BloodRequestForm />} />
+
+        <Route path="/maps" element={<Maps />} />
+        <Route path="/admin" element={<SideBar />}>
+          <Route path="product" element={<ProductAdmin />} />
+          <Route path="productOrder" element={<ProductOrder />} />
+          <Route path="service" element={<ServiceAdmin />} />
+          <Route path="serviceRequest" element={<ServiceRequestAdmin />} />
           <Route
-            path="/bloodDonationRequest"
+            path="bloodDonationRequest"
             element={<BloodDonationAdmin />}
           />
-          <Route path="/donare" element={<DonareAdmin />} />
-          <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/singleProductAdmin" element={<SingleProductAdmin />} />
-
-        </Route> */}
+          <Route path="donare" element={<DonareAdmin />} />
+          <Route path="addProduct" element={<AddProduct />} />
+          <Route path="singleProductAdmin" element={<SingleProductAdmin />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
