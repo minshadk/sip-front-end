@@ -1,19 +1,16 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+// import { useNavigate, useParams } from "react-router-dom";
 
 
 // import Map from "react-map-gl";
 import Map, { Marker, Popup } from "react-map-gl";
 import { Room, Star } from "@material-ui/icons";
-import axios from "axios";
-// import { format } from "timeago.js";
-// import "./app.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX;
 
 function Maps(props) {
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
 const {handleCoordinates,handleClose} = props;
 
@@ -24,13 +21,10 @@ const {handleCoordinates,handleClose} = props;
   // const [pins, setPins] = useState([]);
   // const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [location, setNewPlace] = useState(null);
-  const [coordinates,setCoordinates]= useState([]);
+  // const [coordinates,setCoordinates]= useState([]);
 
-  const myStorage = window.localStorage;
 
-  // const [currentUsername, setCurrentUsername] = useState(
-  //   myStorage.getItem("user")
-  // );
+
 
   const [viewport, setViewport] = useState({
     // latitude: 70,
@@ -106,7 +100,7 @@ const {handleCoordinates,handleClose} = props;
           >
             <Room
               style={{
-                fontSize: 7 * viewport.zoom,
+                fontSize: 4 * viewport.zoom,
                 color: "blue",
                 cursor: "pointer",
               }}

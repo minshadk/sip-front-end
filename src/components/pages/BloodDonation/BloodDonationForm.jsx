@@ -16,7 +16,6 @@ export default function BloodDonationForm() {
   const [phoneNumber, setPhoneNumber] = useState(1231233232);
   const [email, setEmail] = useState("test@gmail.com");
   const [radius, setRadius] = useState(5);
-  // const [location, setLocation] = useState();
   const [coordinates, setCoordinates] = useState();
 
   // Modal
@@ -36,15 +35,7 @@ export default function BloodDonationForm() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // let coordinates = [24.685293233819948,67.6232181521163];
-  // console.log(localStorage.getItem("coordinates"));
-  // console.log(Number(localStorage.getItem("coordinates")));
-  // let coordinates = parseInt(localStorage.getItem("coordinates"));
-
   console.log(coordinates);
-  // if (coordinates) {
-  // setCoordinates(coordinates);
-  // }
 
   const handleSubmit = async () => {
     console.log("handle submit called");
