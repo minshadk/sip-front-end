@@ -51,7 +51,7 @@ const navigate = useNavigate();
   //   setViewport({ ...viewport, latitude: lat, longitude: long });
   // };
 
-  const handleAddClick = (e) => {
+  const handleAddClick = async (e) => {
     console.log("handle add click is called")
     // console.log(e.lngLat)
     // const [longitude, latitude] = e.lngLat;
@@ -59,8 +59,8 @@ const navigate = useNavigate();
     let longitude = e.lngLat.lng;
     let latitude = e.lngLat.lat;
 
-    setCoordinates([longitude,latitude])
-    localStorage.setItem('coordinates', JSON.stringify(coordinates));
+    await setCoordinates([longitude,latitude])
+    await localStorage.setItem('coordinates', JSON.stringify(coordinates));
 
     // console.log(`longitude = ${longitude}`)
     console.log(localStorage.getItem('coordinates'))
@@ -76,8 +76,9 @@ const navigate = useNavigate();
   };
 
   const handleNavigte = () => {
-    navigate("/bloodDonationForm")
+    navigate(-1)
   }
+
   return (
     <Map
       initialViewState={{ ...viewport }}

@@ -7,7 +7,7 @@ import TextInput from "../../utils/Inputs/TextInput";
 import FormWrapper from "../../utils/FormWrapper";
 
 // Importing backend services
-import bloodDonationServices from "../../../services/bloodDonationServices";
+import bloodRequestServices from './../../../services/BloodRequestServices';
 
 export default function BloodRequestForm() {
   const [bloodGroup, setBloodGroup] = useState("test +");
@@ -20,6 +20,7 @@ export default function BloodRequestForm() {
 
   // let coordinates = [24.685293233819948,67.6232181521163];
   let coordinates = parseInt(localStorage.getItem("coordinates"));
+  console.log(localStorage.getItem("coordinates"))
 
   console.log(coordinates);
   // if (coordinates) {
@@ -27,6 +28,7 @@ export default function BloodRequestForm() {
   // }
 
   const handleSubmit = async () => {
+    console.log(coordinates);
     console.log("handle submit called");
     const data = {
       bloodGroup,
@@ -35,7 +37,7 @@ export default function BloodRequestForm() {
       byStanderName,
       phoneNumber,
 
-      location: { type: "Point", coordinates },
+      location: { type: "Point", coordinates }
       //   "location": {
       //     "type": "Point",
       //     "coordinates": [
@@ -46,7 +48,7 @@ export default function BloodRequestForm() {
     console.log(data);
     console.log("its hi");
 
-    await bloodDonationServices.createBloodDonar(data);
+    await bloodRequestServices.createBloodRequest(data);
   };
 
   console.log(coordinates);
