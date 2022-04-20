@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import { Typography, Grid, Card, Box, Button } from "@mui/material";
+import { Typography, Grid, Card, Box, Button, Modal } from "@mui/material";
 
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";
 import FormWrapper from "../../utils/FormWrapper";
+import Maps from "../../map/Maps";
 
 // Importing backend services
 import bloodDonationServices from "../../../services/bloodDonationServices";
 
-// import bloodDonationServices from "../../../services/BloodDonation";
 export default function BloodDonationForm() {
   const [name, setName] = useState();
   const [bloodGroup, setBloodGroup] = useState("test +");
@@ -17,10 +17,29 @@ export default function BloodDonationForm() {
   const [email, setEmail] = useState("test@gmail.com");
   const [radius, setRadius] = useState(5);
   // const [location, setLocation] = useState();
-  // const [coordinates, setCoordinates] = useState();
+  const [coordinates, setCoordinates] = useState();
+
+  // Modal
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4
+  };
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // let coordinates = [24.685293233819948,67.6232181521163];
-  let coordinates = parseInt(localStorage.getItem("coordinates"));
+  // console.log(localStorage.getItem("coordinates"));
+  // console.log(Number(localStorage.getItem("coordinates")));
+  // let coordinates = parseInt(localStorage.getItem("coordinates"));
 
   console.log(coordinates);
   // if (coordinates) {
@@ -47,6 +66,12 @@ export default function BloodDonationForm() {
     console.log("its hi");
 
     await bloodDonationServices.createBloodDonar(data);
+  };
+
+  const handleCoordinates = coordinate => {
+    console.log("handle coordinates called");
+    setCoordinates(coordinate);
+    console.log(coordinates);
   };
 
   console.log(coordinates);
@@ -133,14 +158,23 @@ export default function BloodDonationForm() {
               setTextValue={setLocation}
             />
           </Grid> */}
-          <Grid item xs={12} sm={12} md={12}>
-            <Button variant="contained" color="success" onClick={handleSubmit}>
-              Submit
-            </Button>
-          </Grid>
+          <Button onClick={handleOpen}>Set Location</Button>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12}>
+          <Button variant="contained" color="success" onClick={handleSubmit}>
+            Submit
+          </Button>
         </Grid>
       </Box>
       {/* </Card> */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Maps handleCoordinates={handleCoordinates} handleClose={handleClose} />
+      </Modal>
     </FormWrapper>
   );
 }

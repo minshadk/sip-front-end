@@ -12,8 +12,12 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX;
 
-function Maps() {
+function Maps(props) {
 const navigate = useNavigate();
+
+const {handleCoordinates,handleClose} = props;
+
+// handleCoordinates
 
   // const currentUser = "test";
   // const [showPopup, setShowPopup] = useState(true);
@@ -29,9 +33,11 @@ const navigate = useNavigate();
   // );
 
   const [viewport, setViewport] = useState({
-    latitude: 70,
-    longitude: 17.071727,
-    zoom: 4,
+    // latitude: 70,
+    latitude: 11.00892423436592, 
+    // latitude: 76.08601298174005, 
+    longitude: 76.08601298174005,
+    zoom: 10,
   });
 
   useEffect(() => {
@@ -59,24 +65,19 @@ const navigate = useNavigate();
     let longitude = e.lngLat.lng;
     let latitude = e.lngLat.lat;
 
-    await setCoordinates([longitude,latitude])
-    await localStorage.setItem('coordinates', JSON.stringify(coordinates));
+    await handleCoordinates([longitude,latitude])
+    // await localStorage.setItem('coordinates', JSON.stringify(coordinates));
 
     // console.log(`longitude = ${longitude}`)
-    console.log(localStorage.getItem('coordinates'))
+    // console.log(localStorage.getItem('coordinates'))
     setNewPlace({
       lat: latitude,
       long: longitude,
     });
   };
 
-  // console.log(location)
-  const handleSubmit = async (e) => {
-
-  };
-
-  const handleNavigte = () => {
-    navigate(-1)
+  const closeModal = () => {
+    handleClose()
   }
 
   return (
@@ -122,7 +123,7 @@ const navigate = useNavigate();
           set as my location
             <div>
 
-                <button type="submit" className="submitButton" onClick={handleNavigte}>
+                <button type="submit" className="submitButton" onClick={closeModal}>
                   Set as my location
                 </button>
             </div>
