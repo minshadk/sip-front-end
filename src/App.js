@@ -22,7 +22,8 @@ import DonateBlood from "./components/pages/DonateBlood";
 import BloodDonationForm from "./components/pages/BloodDonation/BloodDonationForm";
 import BloodRequestForm from "./components/pages/BloodDonation/BloodRequestForm";
 import Maps from "./components/map/Maps";
-import BuyProduct from './components/pages/Product/BuyProduct';
+import BuyProduct from "./components/pages/Product/BuyProduct";
+import ManageProduct from "./components/pages/Admin/ManageProduct";
 
 function App() {
   return (
@@ -49,12 +50,10 @@ function App() {
         <Route path="/admin" element={<SideBar />}>
           <Route path="product" element={<ProductAdmin />} />
           <Route path="productOrder" element={<ProductOrder />} />
+          <Route path="productOrder/:orderId" element={<ManageProduct />} />
           <Route path="service" element={<ServiceAdmin />} />
           <Route path="serviceRequest" element={<ServiceRequestAdmin />} />
-          <Route
-            path="bloodDonationRequest"
-            element={<BloodDonationAdmin />}
-          />
+          <Route path="bloodDonationRequest" element={<BloodDonationAdmin />} />
           <Route path="donare" element={<DonareAdmin />} />
           <Route path="addProduct" element={<AddProduct />} />
           <Route path="singleProductAdmin" element={<SingleProductAdmin />} />

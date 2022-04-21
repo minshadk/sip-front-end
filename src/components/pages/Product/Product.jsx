@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams,  useNavigate } from "react-router-dom";
 
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 
@@ -25,7 +25,6 @@ export default function Product() {
 
     callBackendServices();
   }, []);
-  console.log(product);
 
   return (
     <PageWrapper>

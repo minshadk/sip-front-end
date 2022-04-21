@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import {
   Box,
@@ -26,12 +26,12 @@ export default function ProductOrder() {
   const [orders, setOrders] = useState();
 
   useEffect(() => {
+    console.log("funciton is called");
     const callBackendServices = async () => {
-      console.log("call backedn serives");
       const response = await productService.getAllProductOrder();
       // setProduct(response.data.products);
       setOrders(response.data.orders);
-      console.log(orders);
+      console.log(response);
     };
     callBackendServices();
   }, []);
@@ -118,11 +118,13 @@ export default function ProductOrder() {
                 </Box>
                 <Box>
                   <Button
-                    onClick={() => {
-                      navigate(`/productOrder/${order.product.id}`);
-                    }}
+                  // onClick={() => {
+                  //   navigate(`/${order && order._id}`);
+                  // }}
                   >
-                    Manage Product
+                    <Link to={`admin/productOrder/${order._id}`}>
+                      Manage Product
+                    </Link>
                   </Button>
                 </Box>
               </Stack>

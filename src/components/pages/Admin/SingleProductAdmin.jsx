@@ -3,9 +3,8 @@ import React from "react";
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 
 //  Importing Custom Components
-// import { PageWrapper } from "../utils/PageWrapper";
-
 import { PageWrapper } from "../../utils/PageWrapper";
+
 import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
 
 export default function SingleProductAdmin() {
