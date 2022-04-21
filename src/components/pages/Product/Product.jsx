@@ -1,33 +1,32 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
-import { PageWrapper } from "../../utils/PageWrapper";
-
-import  HelpingOthers  from "../../../Assets/Images/helpingOthers.png";
-
 
 //  Importing Custom Components
-// import { PageWrapper } from "../utils/PageWrapper";
+import { PageWrapper } from "../../utils/PageWrapper";
+
+import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
 
 // Importing backend services
 import productService from "../../../services/productService";
 
 export default function Product() {
   let { productId } = useParams();
+  const navigate = useNavigate();
 
-  const [product,setProduct] = useState();
+  const [product, setProduct] = useState();
 
   useEffect(() => {
     const callBackendServices = async () => {
-      console.log("ITs hi");
       const response = await productService.getProductById(productId);
       setProduct(response.data.product);
     };
 
-    callBackendServices()
+    callBackendServices();
   }, []);
-  console.log(product)
+  console.log(product);
+
   return (
     <PageWrapper>
       <Container maxWidth="xl">
@@ -52,13 +51,27 @@ export default function Product() {
           sx={{ marginY: 5 }}
         >
           <Typography>Minimum Order</Typography>
-          <Typography>{product && product.minOrder}</Typography>
-          <Button variant="contained">Buy Now</Button>
+          <Typography>
+            {product && product.minOrder}
+          </Typography>
+          <Button
+            variant="contained"
+            onClick={() => {
+              navigate(`/buyProduct/${product && product._id}`);
+            }}
+          >
+            Buy Now
+          </Button>
+          {/* <Button variant="contained">
+            <Link to={`/buyProduct/${product && product._id}`}>Buy Now</Link>
+          </Button> */}
         </Stack>
         <Box>
-          <Grid sx={{ fontSize: 30 }}>{product && product.name}</Grid>
+          <Grid sx={{ fontSize: 30 }}>
+            {product && product.name}
+          </Grid>
           <Grid>
-          {product && product.description}
+            {product && product.description}
           </Grid>
         </Box>
       </Container>

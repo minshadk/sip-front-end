@@ -12,10 +12,15 @@ const getProductById = async (id) => {
   return BackendServices.get(`product/${id}`);
 };
 
+const orderProduct = async (data) => {
+  return BackendServices.post("productOrder/",data)
+}
+
 const productService = {
   createProduct,
   getAllProduct,
-  getProductById
+  getProductById,
+  orderProduct
 };
 
 export default productService;

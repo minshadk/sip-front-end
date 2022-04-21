@@ -126,21 +126,14 @@ export default function BloodRequestForm() {
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
-            {/* <TextInput
-              name="location"
-              label="Location"
-              textValue={coordinates}
-              setTextValue={setCoordinates}
-            /> */}
-          </Grid>
-          {/* <Grid item xs={12} sm={12} md={12}>
             <TextInput
-              name="location"
-              label="Location"
-              textValue={location}
-              setTextValue={setLocation}
+              name="phoneNumber"
+              label="Bystander Phone Number"
+              textValue={phoneNumber}
+              setTextValue={setPhoneNumber}
             />
-          </Grid> */}
+          </Grid>
+     
           <Grid item xs={12} sm={12} md={12}>
             <Button onClick={handleOpen}>Set Location</Button>
           </Grid>
@@ -151,7 +144,6 @@ export default function BloodRequestForm() {
           </Grid>
         </Grid>
       </Box>
-      {/* </Card> */}
       <Modal
         open={open}
         onClose={handleClose}

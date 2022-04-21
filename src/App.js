@@ -22,6 +22,7 @@ import DonateBlood from "./components/pages/DonateBlood";
 import BloodDonationForm from "./components/pages/BloodDonation/BloodDonationForm";
 import BloodRequestForm from "./components/pages/BloodDonation/BloodRequestForm";
 import Maps from "./components/map/Maps";
+import BuyProduct from './components/pages/Product/BuyProduct';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         </Route>
         <Route path="/bloodDonationForm" element={<BloodDonationForm />} />
         <Route path="/bloodRequestForm" element={<BloodRequestForm />} />
+        <Route path="/buyProduct/:productId" element={<BuyProduct />} />
 
         <Route path="/maps" element={<Maps />} />
         <Route path="/admin" element={<SideBar />}>

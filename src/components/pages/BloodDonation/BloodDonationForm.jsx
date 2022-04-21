@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Typography, Grid, Card, Box, Button, Modal } from "@mui/material";
+import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";

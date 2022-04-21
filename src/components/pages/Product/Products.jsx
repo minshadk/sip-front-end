@@ -18,6 +18,7 @@ import  HelpingOthers  from "../../../Assets/Images/helpingOthers.png";
 export default function Products() {
   const [products, setProduct] = useState();
   
+  
   useEffect(() => {
     const callBackendServices = async () => {
       console.log("call backedn serives");
