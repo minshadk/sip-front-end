@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { Typography, Grid, Card, Box, Button, Modal } from "@mui/material";
+import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";
@@ -11,12 +12,15 @@ import Maps from "../../map/Maps";
 import bloodRequestServices from "./../../../services/BloodRequestServices";
 
 export default function BloodRequestForm() {
+  const navigate = useNavigate();
+
   const [bloodGroup, setBloodGroup] = useState("test +");
   const [patientName, setPatientName] = useState();
   const [cases, setCases] = useState();
   const [byStanderName, setByStanderName] = useState();
   const [phoneNumber, setPhoneNumber] = useState(1231233232);
   const [coordinates, setCoordinates] = useState();
+  const [bloodRequest, setBloodRequest] = useState();
 
   // Modal
   const style = {
@@ -46,18 +50,13 @@ export default function BloodRequestForm() {
       phoneNumber,
 
       location: { type: "Point", coordinates }
-
-      //   "location": {
-      //     "type": "Point",
-      //     "coordinates": [
-      //       coordinates
-      //     ]
-      // }
     };
-    console.log(data);
 
     const response = await bloodRequestServices.createBloodRequest(data);
-    console.log(response);
+    await setBloodRequest(response.data.bloodRequest);
+
+    console.log(bloodRequest);
+    navigate(`/bloodRequestResult/${bloodRequest._id}`);
   };
 
   const handleCoordinates = coordinate => {
@@ -133,7 +132,7 @@ export default function BloodRequestForm() {
               setTextValue={setPhoneNumber}
             />
           </Grid>
-     
+
           <Grid item xs={12} sm={12} md={12}>
             <Button onClick={handleOpen}>Set Location</Button>
           </Grid>

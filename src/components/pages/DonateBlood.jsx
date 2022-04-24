@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
 
@@ -11,20 +11,15 @@ import bloodRequest from "./../../Assets/Images/bloodRequest.png";
 import donateBlood from "./../../Assets/Images/donateBlood.png";
 
 export default function DonateBlood() {
+  const navigate = useNavigate();
+
   return (
     <PageWrapper>
       <Container maxWidth="xl">
         <Box sx={{ marginY: 10 }}>
-          <Grid container sx={{ marginBottom: 30 }}>
+          <Grid container sx={{ marginBottom: 20 }}>
             <Grid item xs={8}>
-              {/* xs=8 */}
-              {/* <Grid container>
-
-              </Grid> */}
               <Stack
-                // spacing={2}
-                // direction="row"
-                // divider={<Divider orientation="vertical" flexItem />}
                 direction="column"
                 justifyContent="center"
                 alignItems="center"
@@ -37,8 +32,16 @@ export default function DonateBlood() {
                   join with us and donate your valuable blood for others.then
                   click below and fill the form
                 </Typography>
-                <Button variant="outlined" sx={{ borderRadius: 40 }}>
-                  <Link to="/products">Click Here</Link>
+                <Button
+                  variant="outlined"
+                  sx={{ borderRadius: 40 }}
+                  onClick={() => {
+                    navigate("/bloodDonationForm");
+                  }}
+                >
+                  {/* <Link to="/products"> */}
+                  Click Here
+                  {/* </Link> */}
                 </Button>
               </Stack>
             </Grid>
@@ -54,7 +57,7 @@ export default function DonateBlood() {
               <img src={bloodRequest} height="200px" />
             </Grid>
           </Grid>
-          <Grid container sx={{ marginBottom: 30 }}>
+          <Grid container sx={{ marginBottom: 300 }}>
             <Grid item xs={8}>
               <Stack
                 direction="column"
@@ -68,8 +71,16 @@ export default function DonateBlood() {
                   we will help you to get blood.you just fill the form with the
                   details of the patient. click below and fill the form
                 </Typography>
-                <Button variant="outlined" sx={{ borderRadius: 40 }}>
-                  <Link to="/products">Click Here</Link>
+                <Button
+                  variant="outlined"
+                  sx={{ borderRadius: 40 }}
+                  onClick={() => {
+                    navigate("/bloodRequestForm");
+                  }}
+                >
+                  {/* <Link to="/products"> */}
+                  Click Here
+                  {/* </Link> */}
                 </Button>
               </Stack>
             </Grid>

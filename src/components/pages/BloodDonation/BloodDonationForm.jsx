@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
@@ -11,6 +12,8 @@ import Maps from "../../map/Maps";
 import bloodDonationServices from "../../../services/bloodDonationServices";
 
 export default function BloodDonationForm() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState();
   const [bloodGroup, setBloodGroup] = useState("test +");
   const [phoneNumber, setPhoneNumber] = useState(1231233232);
@@ -47,17 +50,12 @@ export default function BloodDonationForm() {
       radius,
 
       location: { type: "Point", coordinates }
-      //   "location": {
-      //     "type": "Point",
-      //     "coordinates": [
-      //       coordinates
-      //     ]
-      // }
     };
     console.log(data);
     console.log("its hi");
 
     await bloodDonationServices.createBloodDonar(data);
+    navigate(-1);
   };
 
   const handleCoordinates = coordinate => {

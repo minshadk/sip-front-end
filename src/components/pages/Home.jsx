@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
-import { styled, Toolbar } from "@mui/material";
 
 // Importing Custom components
 import { PageWrapper } from "../utils/PageWrapper";
@@ -71,10 +70,11 @@ const Home = () => {
                 variant="h2"
                 sx={{
                   marginTop: 25,
-                  marginBottom: 25
+                  marginBottom: 20,
+                  color:"#346FC0"
                 }}
               >
-                Products For Better World
+                we rise by liftng others
               </Typography>
               <Typography variant="h5">
                 we are in a mission to help the helpless.this is the Best Way To
@@ -102,47 +102,7 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-        {/* Our sevices */}
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          sx={{ paddingTop: 8 }}
-        >
-          <Typography variant="h4">Our services</Typography>
-          <Typography variant="h6" sx={{ paddingTop: 4 }}>
-            We provide to you the best choiches for you. We provide you the
-            necassary needs for your emergency . You can get hand from us at any
-            time at any where
-          </Typography>
-
-          <Grid
-            container
-            // spacing={{ xs: 2, md: 3 }}
-            spacing={{ xs: 2, md: 3, lg: 15 }}
-            sx={{ paddingTop: 8 }}
-            columns={{ xs: 4, sm: 8, md: 12 }}
-          >
-            {services &&
-              services.map((service, index) =>
-                <Grid item xs={2} sm={4} md={4}>
-                  {/* <Link to={`/product`}> */}
-                  <ImageCard
-                    title={service.name}
-                    description={service.description}
-                    // component={Link}
-                  />
-                  {/* </Link> */}
-                </Grid>
-              )}
-          </Grid>
-          <Stack spacing={2} direction="row" sx={{ margin: 5 }}>
-            <Button variant="outlined">
-              <Link to="/services">Read More</Link>
-            </Button>
-          </Stack>
-        </Grid>
+  
         {/* Blood Donation */}
         <Grid
           container
@@ -178,7 +138,7 @@ const Home = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item xs={12} sm={4} md={4} lg={6}>5
+          <Grid item xs={12} sm={4} md={4} lg={6}>
             <Typography variant="h4">Helping others</Typography>
             <Typography variant="h6" sx={{ paddingTop: 4 }}>
               Helping others improves social interaction, distracts people from
