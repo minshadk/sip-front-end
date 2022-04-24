@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
 
@@ -25,7 +25,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const [services, setServices] = useState();
-  const [products, setProduct] = useState();
+  const [products, setProducts] = useState();
 
   useEffect(() => {
     // const getAllServices = async () => {
@@ -50,13 +50,18 @@ const Home = () => {
 
     const callBackendServices = async () => {
       const response = await productService.getAllProduct();
-      setProduct(response.data.products);
+      console.log(response.data.products)
+      await setProducts(response.data.products);
+      console.log(products);
+      console.log(products.image);
+      console.log(products.name);
     };
     get("service");
     callBackendServices();
   }, []);
-  // console.log(services);
   console.log(products);
+
+  // console.log(services);
 
   return (
     // Landing
@@ -187,8 +192,9 @@ const Home = () => {
                 products.map((product, index) =>
                   <Grid item xs={12} sm={4} md={4} lg={4} x>
                     {/* <Link to={`/product`}> */}
-                    <ImageCard
+                    <EventsCard
                       title={product.name}
+                      imageUrl={product.image}
                       description={product.description}
                       // component={Link}
                     />
@@ -198,9 +204,17 @@ const Home = () => {
             </Grid>
           </Grid>
           <Stack spacing={2} direction="row" sx={{ margin: 5 }}>
-            <Button variant="outlined">
-              <Link to="/products">Read More</Link>
-            </Button>
+            {/* <Button variant="outlined">
+              <Link to="/products" style={{textDecoration:"none"}}>Read More</Link>
+            </Button> */}
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  navigate("/products");
+                }}
+              >
+                Read More
+              </Button>
           </Stack>
         </Grid>
       </Container>

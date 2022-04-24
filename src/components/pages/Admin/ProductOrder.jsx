@@ -90,7 +90,7 @@ export default function ProductOrder() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Order Number
+                    Number of orders
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}

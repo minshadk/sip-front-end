@@ -14,7 +14,8 @@ import { Test } from "../../../Assets/Images/ImageSemiAutoImport";
 
 export default function ImageCard(props) {
   const { title, description, imageUrl } = props;
-
+  console.log(imageUrl);
+  console.log(description)
   return (
     <Card
       sx={{

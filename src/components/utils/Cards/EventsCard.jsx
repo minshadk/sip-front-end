@@ -16,7 +16,10 @@ import search from "../../../Assets/Images/search.png";
 // icons
 // import AccessibleIcon from '@mui/icons-material/Accessible';
 
-export default function EventsCard() {
+export default function EventsCard(props) {
+  const { title, description, imageUrl } = props;
+  console.log(imageUrl);
+  console.log(description)
   return (
     <Card
       sx={{
@@ -49,11 +52,10 @@ export default function EventsCard() {
 
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Search
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>

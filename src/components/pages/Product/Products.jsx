@@ -13,12 +13,11 @@ import ImageCard from "../../utils/Cards/ImageCard";
 import productService from "../../../services/productService";
 
 // Importing images
-import  HelpingOthers  from "../../../Assets/Images/helpingOthers.png";
+import HelpingOthers from "../../../Assets/Images/helpingOthers.png";
 
 export default function Products() {
   const [products, setProduct] = useState();
-  
-  
+
   useEffect(() => {
     const callBackendServices = async () => {
       console.log("call backedn serives");
@@ -26,12 +25,12 @@ export default function Products() {
       setProduct(response.data.products);
     };
     callBackendServices();
-  },[])
-  console.log(products)
+  }, []);
+  console.log(products);
   return (
     <PageWrapper>
       <Container maxWidth="xl">
-        <Box>
+        {/* <Box>
           <Typography
             variant="h2"
             sx={{
@@ -39,15 +38,25 @@ export default function Products() {
               marginBottom: 25
             }}
           >
-            we rise by liftng others
+            Our Products are crafted with love
           </Typography>
-        </Box>
+        </Box> */}
         <Grid container>
           <Grid item xs={12} sm={4} md={4} lg={6}>
             <Typography variant="h6" sx={{ paddingTop: 4 }}>
-              We provide to you the best choiches for you. We provide you the
-              necassary needs for your emergency . You can get hand from us at
-              any time at any where
+              Handmade products are great for the environment. Most handmade
+              products do not require a factory or large production facility.
+              Instead, nearly all are made in s people’s own homes.
+            </Typography>
+            <Typography variant="h6" sx={{ paddingTop: 4 }}>
+              Handmade is often very local, so it doesn’t travel hundreds and
+              thousands of miles to get to you. When you order from this site ,
+              you know that your handmade order is coming from nearby and it’s
+              made nearby your location too. When you buy a product from site
+              you are directly support a poor family. When you buy a product
+              it’s not just about money. Each purchase, gives the artist, the
+              maker, the crafts person a confidence in their product, chance to
+              develop their skills further and for their economic stability.
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4} md={4} lg={6}>
@@ -79,24 +88,24 @@ export default function Products() {
                     <EventsCard />
                   </Grid> */}
                   {products &&
-                products.map((product, index) =>
-                  <Grid item xs={12} sm={4} md={4} lg={4} x>
-                    <Link to={`/product/${product._id}`}>
-                    <ImageCard
-                      title={product.name}
-                      description={product.description}
-                      // component={Link}
-                    />
-                    </Link>
-                  </Grid>
-                )}
+                    products.map((product, index) =>
+                      <Grid item xs={12} sm={4} md={4} lg={4} x>
+                        <Link to={`/product/${product._id}`}>
+                          <ImageCard
+                            title={product.name}
+                            description={product.description}
+                            // component={Link}
+                          />
+                        </Link>
+                      </Grid>
+                    )}
                 </Grid>
               </Grid>
             </Grid>
           </Box>
         </Grid>
       </Container>
-      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }}></Box>
+      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }} />
     </PageWrapper>
   );
 }

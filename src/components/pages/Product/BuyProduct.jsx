@@ -33,6 +33,7 @@ export default function BuyProduct() {
 
     // await bloodDonationServices.createBloodDonar(data);
     const response = await productService.orderProduct(data);
+    navigate(-1)
     console.log(response);
   };
 
@@ -65,7 +66,8 @@ export default function BuyProduct() {
           <Grid item xs={12} sm={12} md={12}>
             <TextInput
               name="orderNumber"
-              label="Order Number"
+              label="Number of orders"
+              type="number"
               textValue={orderNumber}
               setTextValue={setOrderNumber}
             />
@@ -75,6 +77,7 @@ export default function BuyProduct() {
               name="phoneNumber"
               label="Phone Number"
               textValue={phoneNumber}
+              type="number"
               setTextValue={setPhoneNumber}
             />
           </Grid>

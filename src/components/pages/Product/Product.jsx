@@ -18,8 +18,10 @@ export default function Product() {
   const [product, setProduct] = useState();
 
   useEffect(() => {
+    console.log("it the curretn page")
     const callBackendServices = async () => {
       const response = await productService.getProductById(productId);
+      console.log(response)
       setProduct(response.data.product);
     };
 
@@ -28,7 +30,7 @@ export default function Product() {
 
   return (
     <PageWrapper>
-      <Container maxWidth="xl">
+      <Container maxWidth="md">
         <Box
           sx={{
             display: "flex",
@@ -38,7 +40,7 @@ export default function Product() {
           }}
         >
           <img
-            src={HelpingOthers}
+            src={ product && product.image}
             //   alt={item.title}
           />
         </Box>
@@ -59,7 +61,7 @@ export default function Product() {
               navigate(`/buyProduct/${product && product._id}`);
             }}
           >
-            Buy Now
+            Order Now
           </Button>
           {/* <Button variant="contained">
             <Link to={`/buyProduct/${product && product._id}`}>Buy Now</Link>
