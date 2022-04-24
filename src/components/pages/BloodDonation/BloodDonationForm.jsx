@@ -35,7 +35,8 @@ export default function BloodDonationForm() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(coordinates);
+  // console.log(coordinates);
+  console.log(localStorage.getItem("userId"));
 
   const handleSubmit = async () => {
     console.log("handle submit called");

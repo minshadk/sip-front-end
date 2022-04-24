@@ -49,7 +49,6 @@ export default function Login() {
       localStorage.setItem("userId", user.data.user._id);
 
       if(user.data.user.userType === "user") {
-        console.log("stucse and user")
         navigate("/home")
       }
       else{

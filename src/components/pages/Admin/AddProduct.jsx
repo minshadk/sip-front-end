@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 // import { PageWrapper } from "../utils/PageWrapper";
-import { Typography, Grid, Card, Box, Button } from "@mui/material";
+import { Typography, Grid, Card, Box, Button, Input } from "@mui/material";
 
 import FormWrapper from "../../utils/FormWrapper";
 import TextInput from "../../utils/Inputs/TextInput";
@@ -11,26 +11,49 @@ import ImageUpload from "../../utils/Inputs/ImageUpload";
 import productService from "../../../services/productService";
 
 export default function AddProduct() {
+  const [profileImage, setProfileImage] = useState();
+
   const [name, setName] = useState();
   const [description, setDescription] = useState();
   const [minOrder, setMinOrder] = useState();
+  const [image,setImage] = useState();
+  const [fileData,setFileData] = useState([])
+
   const baseURL = "http://localhost:3001/product";
 
-  const handleSubmit = async () => {
-    const data = {
-      name,
-      description,
-      minOrder
-    };
+  const handleFileChange = ({ target }) => {
+    setFileData(target.files[0]);
+    setImage(target.value);
+  };
 
-    await productService.createProduct(data)
+  const handleSubmit = async () => {
+    // const data = {
+    //   name,
+    //   description,
+    //   minOrder
+    // };
+
+    const formData = new FormData()
+    formData.append("name",name)
+    formData.append("description",description)
+    formData.append("minOrder",minOrder)
+    formData.append("image",fileData)
+
+    try {
+      const res = await productService.createProduct(formData)
+      console.log(res)
+    } catch (err) {
+      console.log(err)
+    }
+
+    // await productService.createProduct(data)
 
     // axios.post(baseURL, data).then((response) => {
     //   console.log(response);
     //   // setPost(response.data);
     // });
   };
-
+  console.log(fileData)
   return (
     <FormWrapper>
       <Grid
@@ -58,7 +81,27 @@ export default function AddProduct() {
           rowSpacing={2}
         >
           <Grid item xs={12} sm={12} md={12}>
-            <ImageUpload />
+            {/* <ImageUpload image={image} setImage={setImage} /> */}
+            {/* <ImageUpload image={profileImage} setImage={setProfileImage} /> */}
+            <label htmlFor="contained-button-file">
+            <Input
+              value={image}
+              sx={{ display: "none" }}
+              accept="image/*"
+              id="contained-button-file"
+              multiple
+              type="file"
+              onChange={handleFileChange}
+            />
+            <Button
+              sx={{ margin: "10px" }}
+              variant="contained"
+              component="span"
+            >
+              Upload Image
+            </Button>
+          </label>
+
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
             <TextInput
