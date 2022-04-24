@@ -5,6 +5,8 @@ import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";
+import SelectInput from "./../../utils/Inputs/SelectInput";
+
 import FormWrapper from "../../utils/FormWrapper";
 import Maps from "../../map/Maps";
 
@@ -15,12 +17,13 @@ export default function BloodDonationForm() {
   const navigate = useNavigate();
 
   const [name, setName] = useState();
-  const [bloodGroup, setBloodGroup] = useState("test +");
-  const [phoneNumber, setPhoneNumber] = useState(1231233232);
-  const [email, setEmail] = useState("test@gmail.com");
+  const [bloodGroup, setBloodGroup] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
   const [radius, setRadius] = useState(5);
   const [coordinates, setCoordinates] = useState();
 
+  const bloodGroups = ["O+", "O-", "A+", "A-", "AB+", "AB-", "B+", "B-"];
   // Modal
   const style = {
     position: "absolute",
@@ -84,14 +87,7 @@ export default function BloodDonationForm() {
         </Typography>
       </Grid>
       <Box>
-        <Grid
-          container
-          //   direction="column"
-          //   justifyContent="center"
-          //   alignItems="center"
-          spacing={2}
-          rowSpacing={2}
-        >
+        <Grid container spacing={2} rowSpacing={2}>
           <Grid item xs={12} sm={12} md={12}>
             <TextInput
               name="name"
@@ -101,11 +97,12 @@ export default function BloodDonationForm() {
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
-            <TextInput
-              name="bloodGroup"
+            <SelectInput
               label="Blood Group"
-              textValue={bloodGroup}
-              setTextValue={setBloodGroup}
+              name="Blood Group"
+              menuItems={bloodGroups}
+              dropdownValue={bloodGroup}
+              setDropdownValue={setBloodGroup}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
@@ -132,22 +129,6 @@ export default function BloodDonationForm() {
               setTextValue={setRadius}
             />
           </Grid>
-          <Grid item xs={12} sm={12} md={12}>
-            {/* <TextInput
-              name="location"
-              label="Location"
-              textValue={coordinates}
-              setTextValue={setCoordinates}
-            /> */}
-          </Grid>
-          {/* <Grid item xs={12} sm={12} md={12}>
-            <TextInput
-              name="location"
-              label="Location"
-              textValue={location}
-              setTextValue={setLocation}
-            />
-          </Grid> */}
           <Button onClick={handleOpen}>Set Location</Button>
         </Grid>
         <Grid item xs={12} sm={12} md={12}>

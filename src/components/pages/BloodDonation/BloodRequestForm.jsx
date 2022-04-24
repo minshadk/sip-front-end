@@ -5,6 +5,8 @@ import { Typography, Grid, Box, Button, Modal } from "@mui/material";
 
 // Importing Custom components
 import TextInput from "../../utils/Inputs/TextInput";
+import SelectInput from "./../../utils/Inputs/SelectInput";
+
 import FormWrapper from "../../utils/FormWrapper";
 import Maps from "../../map/Maps";
 
@@ -14,11 +16,11 @@ import bloodRequestServices from "./../../../services/BloodRequestServices";
 export default function BloodRequestForm() {
   const navigate = useNavigate();
 
-  const [bloodGroup, setBloodGroup] = useState("test +");
+  const [bloodGroup, setBloodGroup] = useState();
   const [patientName, setPatientName] = useState();
   const [cases, setCases] = useState();
   const [byStanderName, setByStanderName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState(1231233232);
+  const [phoneNumber, setPhoneNumber] = useState();
   const [coordinates, setCoordinates] = useState();
   const [bloodRequest, setBloodRequest] = useState();
 
@@ -34,6 +36,8 @@ export default function BloodRequestForm() {
     boxShadow: 24,
     p: 4
   };
+
+  const bloodGroups = ["O+", "O-", "A+", "A-", "AB+", "AB-", "B+", "B-"];
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -54,7 +58,8 @@ export default function BloodRequestForm() {
 
     const response = await bloodRequestServices.createBloodRequest(data);
     await setBloodRequest(response.data.bloodRequest);
-
+    console.log(response);
+    console.log(response.data.bloodRequest);
     console.log(bloodRequest);
     navigate(`/bloodRequestResult/${bloodRequest._id}`);
   };
@@ -92,11 +97,12 @@ export default function BloodRequestForm() {
           rowSpacing={2}
         >
           <Grid item xs={12} sm={12} md={12}>
-            <TextInput
-              name="bloodGroup"
+            <SelectInput
               label="Blood Group"
-              textValue={bloodGroup}
-              setTextValue={setBloodGroup}
+              name="Blood Group"
+              menuItems={bloodGroups}
+              dropdownValue={bloodGroup}
+              setDropdownValue={setBloodGroup}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>

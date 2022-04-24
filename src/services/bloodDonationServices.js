@@ -4,8 +4,12 @@ const createBloodDonar = async (data) => {
   return BackendServices.post("bloodDonor/", data);
 };
 
+const findDonar = async (id) => {
+  return BackendServices.get(`bloodDonor/findDonare/${id}`);
+};
 const bloodDonationServices = {
-  createBloodDonar
+  createBloodDonar,
+  findDonar
 };
 
 export default bloodDonationServices;

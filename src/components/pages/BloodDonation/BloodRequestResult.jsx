@@ -8,23 +8,25 @@ import {
   Grid,
   Typography,
   Stack,
-  Card,
+  Card
 } from "@mui/material";
 
 //  Importing Custom Components
 import { PageWrapper } from "../../utils/PageWrapper";
 
 // Importing backend services
+import bloodDonationServices from "./../../../services/bloodDonationServices";
 
 export default function BloodRequestResult() {
   let { requestId } = useParams();
-  //   const requestId = "62630cbfe62670aa96d7aad2";
-  const [ambulances, setAmbulances] = useState();
+
+  const [bloodDonres, setBloodDonres] = useState([]);
 
   useEffect(() => {
     const callBackendServices = async () => {
-    //   const response = await ambulanceServices.getAmbulanceByRadius(requestId);
-    //   setAmbulances(response.data.ambulances);
+      const response = await bloodDonationServices.findDonar(requestId);
+      setBloodDonres(response.data.bloodDonors);
+      console.log(response);
     };
     callBackendServices();
   }, []);
@@ -38,7 +40,7 @@ export default function BloodRequestResult() {
         spacing={2}
       >
         <Typography variant="h4">
-          Ambulance are listed in Accending Order of distance
+          Blood Donres are listed in Accending Order of distance
         </Typography>
       </Stack>
 
@@ -48,11 +50,11 @@ export default function BloodRequestResult() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: 8,
+          marginTop: 8
         }}
       >
-        {ambulances &&
-          ambulances.map((ambulance, index) =>
+        {bloodDonres &&
+          bloodDonres.map((bloodDonre, index) =>
             <Card
               sx={{ minWidth: 600, maxWidth: 700, padding: 2, marginTop: 3 }}
             >
@@ -68,14 +70,14 @@ export default function BloodRequestResult() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Driver Name
+                    Donare Name
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
                     // color="text.secondary"
                     gutterBottom
                   >
-                    {ambulance && ambulance.name}
+                    {bloodDonre && bloodDonre.name}
                   </Typography>
                 </Box>
                 <Box>
@@ -84,14 +86,14 @@ export default function BloodRequestResult() {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Driver Phone Number
+                     Phone Number
                   </Typography>
                   <Typography
                     sx={{ fontSize: 14 }}
                     // color="text.secondary"
                     gutterBottom
                   >
-                    {ambulance && ambulance.phoneNumber}
+                    {bloodDonre && bloodDonre.phoneNumber}
                   </Typography>
                 </Box>
               </Stack>

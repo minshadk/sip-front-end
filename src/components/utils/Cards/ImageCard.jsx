@@ -13,13 +13,13 @@ import { Test } from "../../../Assets/Images/ImageSemiAutoImport";
 // import AccessibleIcon from '@mui/icons-material/Accessible';
 
 export default function ImageCard(props) {
-  const { title, description } = props;
+  const { title, description, imageUrl } = props;
 
   return (
     <Card
       sx={{
         maxWidth: 270,
-        maxHeight:250,
+        maxHeight: 250,
         // padding: 1 ,
         paddingX: 2,
         // paddingY:4,
@@ -34,18 +34,10 @@ export default function ImageCard(props) {
         <CardMedia
           component="img"
           height="140"
-          image="https://media.istockphoto.com/photos/fried-pork-and-vegetables-on-white-background-picture-id1190330112?k=20&m=1190330112&s=612x612&w=0&h=_TrmthJupdqYmMU-NC-es85TEvaBJsynDS383hqiAvM="
+          image={imageUrl}
           alt="green iguana"
           // sx={{minHeight:50}}
         />
-        {/* <CardMedia
-          component="img"
-          // height=""
-          // image="https://media.istockphoto.com/photos/fried-pork-and-vegetables-on-white-background-picture-id1190330112?k=20&m=1190330112&s=612x612&w=0&h=_TrmthJupdqYmMU-NC-es85TEvaBJsynDS383hqiAvM="
-          image={search}
-          alt="green iguana"
-          sx={{ objectFit: "cover", maxHeight:100,maxWidth:100}}
-        /> */}
 
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

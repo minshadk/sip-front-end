@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 // import { PageWrapper } from "../utils/PageWrapper";
 import { Typography, Grid, Card, Box, Button, Input } from "@mui/material";
@@ -11,6 +12,8 @@ import ImageUpload from "../../utils/Inputs/ImageUpload";
 import productService from "../../../services/productService";
 
 export default function AddProduct() {
+  const navigate = useNavigate();
+
   const [profileImage, setProfileImage] = useState();
 
   const [name, setName] = useState();
@@ -45,13 +48,7 @@ export default function AddProduct() {
     } catch (err) {
       console.log(err)
     }
-
-    // await productService.createProduct(data)
-
-    // axios.post(baseURL, data).then((response) => {
-    //   console.log(response);
-    //   // setPost(response.data);
-    // });
+    navigate(-1)
   };
   console.log(fileData)
   return (

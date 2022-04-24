@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
 
@@ -22,6 +22,8 @@ import axios from "axios";
 const baseURL = "http://localhost:3001/";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [services, setServices] = useState();
   const [products, setProduct] = useState();
 
@@ -43,13 +45,10 @@ const Home = () => {
       //generating the request
       const response = await axios.get(url);
 
-      // return response.data;
-      // console.log(response.data)
       setServices(response.data.data.services);
     };
 
     const callBackendServices = async () => {
-      console.log("call backedn serives");
       const response = await productService.getAllProduct();
       setProduct(response.data.products);
     };
@@ -71,7 +70,7 @@ const Home = () => {
                 sx={{
                   marginTop: 25,
                   marginBottom: 20,
-                  color:"#346FC0"
+                  color: "#346FC0"
                 }}
               >
                 we rise by liftng others
@@ -102,7 +101,7 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-  
+
         {/* Blood Donation */}
         <Grid
           container
@@ -125,8 +124,13 @@ const Home = () => {
               those risk.
             </Typography>
             <Stack spacing={2} direction="row" sx={{ margin: 5 }}>
-              <Button variant="outlined">
-                <Link to="/donateBlood">Donate Blood</Link>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  navigate("/donateBlood");
+                }}
+              >
+                Read More
               </Button>
             </Stack>
           </Grid>

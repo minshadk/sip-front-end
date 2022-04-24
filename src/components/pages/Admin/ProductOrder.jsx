@@ -122,7 +122,7 @@ export default function ProductOrder() {
                   //   navigate(`/${order && order._id}`);
                   // }}
                   >
-                    <Link to={`admin/productOrder/${order._id}`}>
+                    <Link to={`/admin/productOrder/${order._id}`}>
                       Manage Product
                     </Link>
                   </Button>
