@@ -60,7 +60,7 @@ const AppNavBar = () => {
         {/* <Bars /> */}
   
         <NavMenu>
-          <NavLink to='/home' >
+          <NavLink to='/' >
             Home
           </NavLink>
           

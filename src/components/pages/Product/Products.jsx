@@ -88,17 +88,18 @@ export default function Products() {
                     <EventsCard />
                   </Grid> */}
                   {products &&
-                    products.map((product, index) =>
+                    products.map((product, index) => (
                       <Grid item xs={12} sm={4} md={4} lg={4} x>
                         <Link to={`/product/${product._id}`}>
-                          <ImageCard
+                          <EventsCard
                             title={product.name}
+                            imageUrl={product.image}
                             description={product.description}
                             // component={Link}
                           />
                         </Link>
                       </Grid>
-                    )}
+                    ))}
                 </Grid>
               </Grid>
             </Grid>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:4001/";
+const baseURL = "http://localhost:3001/";
 
 //get request
 const get = async (path, headers = {}, params = {}) => {

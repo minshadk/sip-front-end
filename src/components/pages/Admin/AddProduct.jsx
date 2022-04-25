@@ -122,6 +122,8 @@ export default function AddProduct() {
               label="Min order"
               textValue={minOrder}
               setTextValue={setMinOrder}
+              type={"number"}
+
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>

@@ -136,6 +136,7 @@ export default function BloodRequestForm() {
               label="Bystander Phone Number"
               textValue={phoneNumber}
               setTextValue={setPhoneNumber}
+              type={"number"}
             />
           </Grid>
 

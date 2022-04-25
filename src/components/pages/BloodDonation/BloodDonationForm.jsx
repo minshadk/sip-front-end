@@ -111,6 +111,7 @@ export default function BloodDonationForm() {
               label="Phone Number"
               textValue={phoneNumber}
               setTextValue={setPhoneNumber}
+              type={"number"}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
@@ -127,6 +128,7 @@ export default function BloodDonationForm() {
               label="Radius"
               textValue={radius}
               setTextValue={setRadius}
+              type={"number"}
             />
           </Grid>
           <Button onClick={handleOpen}>Set Location</Button>

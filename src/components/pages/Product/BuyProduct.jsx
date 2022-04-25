@@ -70,6 +70,8 @@ export default function BuyProduct() {
               type="number"
               textValue={orderNumber}
               setTextValue={setOrderNumber}
+              
+
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
@@ -79,6 +81,7 @@ export default function BuyProduct() {
               textValue={phoneNumber}
               type="number"
               setTextValue={setPhoneNumber}
+
             />
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
