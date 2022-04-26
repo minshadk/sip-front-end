@@ -16,10 +16,10 @@ export default function FormWrapper(props) {
         {/* {props.children} */}
         <Card
           sx={{
-            minHeight: 500,
-            minWidth: 400,
+            // minHeight: 500,
+            minWidth: 40,
             padding:5,
-            maxWidth:600,
+            maxWidth:400,
           }}
         >
           {props.children}

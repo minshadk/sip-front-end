@@ -81,7 +81,7 @@ export default function EventsCard(props) {
       sx={{
         width: "270px",
         // padding: 1 ,
-        paddingX: 2,
+        // paddingX: 2,
         // paddingY:4,
         borderRadius: "5px",
         backgroundColor: "#fff",
@@ -107,7 +107,7 @@ export default function EventsCard(props) {
         /> */}
 
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" sx={{color:"#333"}}>
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">

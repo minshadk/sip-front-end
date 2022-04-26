@@ -25,7 +25,7 @@ export default function BloodRequestResult() {
   useEffect(() => {
     const callBackendServices = async () => {
       const response = await bloodDonationServices.findDonar(requestId);
-      setBloodDonres(response.data.bloodDonors);
+      setBloodDonres(response.data.filteredDonorsByGroup);
       console.log(response);
     };
     callBackendServices();
