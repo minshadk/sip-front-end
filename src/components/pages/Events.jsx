@@ -6,15 +6,18 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import { PageWrapper } from "../utils/PageWrapper";
 import ServicesCard from "../utils/Cards/ServicesCard";
 import EventsCard from "../utils/Cards/EventsCard";
+import ImageCard from "../utils/Cards/ImageCard";
 
 // Importing images
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";
+import  donate  from './../../Assets/Images/donate.jpeg';
+import  oneDay  from './../../Assets/Images/oneDay.jpg';
 
 export default function Events() {
   return (
     <PageWrapper>
       <Container maxWidth="xl">
-        <Box>
+        {/* <Box>
           <Typography
             variant="h2"
             sx={{
@@ -24,7 +27,7 @@ export default function Events() {
           >
             we rise by liftng others
           </Typography>
-        </Box>
+        </Box> */}
         <Grid container>
           <Grid item xs={12} sm={4} md={4} lg={6}>
             <Typography variant="h6" sx={{ paddingTop: 4 }}>
@@ -53,14 +56,13 @@ export default function Events() {
                   spacing={{ xs: 2, md: 3, lg: 30 }}
                 >
                   <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <EventsCard />
+                    <ImageCard  imageUrl={oneDay} />
                   </Grid>
+                 
                   <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <EventsCard />
+                    <ImageCard  imageUrl={donate} />
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <EventsCard />
-                  </Grid>
+                 
                 </Grid>
               </Grid>
             </Grid>

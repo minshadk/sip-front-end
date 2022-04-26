@@ -19,35 +19,22 @@ export default function ImageCard(props) {
   return (
     <Card
       sx={{
-        maxWidth: 270,
-        maxHeight: 250,
-        // padding: 1 ,
+        width: "270px",
         paddingX: 2,
-        // paddingY:4,
         borderRadius: "5px",
         backgroundColor: "#fff",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        minHeight:"500px",
       }}
     >
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="100%"
           image={imageUrl}
-          alt="green iguana"
-          // sx={{minHeight:50}}
         />
-
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography>
-        </CardContent>
       </CardActionArea>
     </Card>
   );

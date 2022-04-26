@@ -29,30 +29,8 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 
-const pages = ["Services", "Products", "Donar", "Events", "About us"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const AppNavBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-
-
   return (
     <>
    <>
@@ -75,6 +53,9 @@ const AppNavBar = () => {
         >
         <NavLink to='/products' >
         Products
+          </NavLink>
+        <NavLink to='/events' >
+        Events
           </NavLink>
           <NavLink to='/donateBlood' >
             Blood Donation

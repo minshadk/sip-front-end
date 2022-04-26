@@ -54,7 +54,7 @@ export default function DonateBlood() {
                 justifyContent: "center"
               }}
             >
-              <img src={bloodRequest} height="200px" />
+              <img src={donateBlood} height="200px" />
             </Grid>
           </Grid>
           <Grid container sx={{ marginBottom: 300 }}>
