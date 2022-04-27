@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams,  useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { Box, Container, Grid, Stack, Typography, Button } from "@mui/material";
 
@@ -18,10 +18,10 @@ export default function Product() {
   const [product, setProduct] = useState();
 
   useEffect(() => {
-    console.log("it the curretn page")
+    console.log("it the curretn page");
     const callBackendServices = async () => {
       const response = await productService.getProductById(productId);
-      console.log(response)
+      console.log(response);
       setProduct(response.data.product);
     };
 
@@ -40,7 +40,7 @@ export default function Product() {
           }}
         >
           <img
-            src={ product && product.image}
+            src={product && product.image}
             //   alt={item.title}
           />
         </Box>

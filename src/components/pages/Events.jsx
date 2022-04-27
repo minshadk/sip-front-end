@@ -10,8 +10,25 @@ import ImageCard from "../utils/Cards/ImageCard";
 
 // Importing images
 import HelpingOthers from "../../Assets/Images/helpingOthers.png";
-import  donate  from './../../Assets/Images/donate.jpeg';
-import  oneDay  from './../../Assets/Images/oneDay.jpg';
+import donate from "./../../Assets/Images/donate.jpeg";
+import oneDay from "./../../Assets/Images/oneDay.jpg";
+import alumin from "./../../Assets/Images/alumin.jpeg";
+import inspire from "./../../Assets/Images/inspire.jpeg";
+import nirakute from "./../../Assets/Images/nirakute.jpeg";
+import payasam from "./../../Assets/Images/payasam.jpeg";
+import spring from "./../../Assets/Images/spring.jpeg";
+import workShop from "./../../Assets/Images/workShop.jpeg";
+
+const imageUrls = [
+  donate,
+  oneDay,
+  alumin,
+  inspire,
+  nirakute,
+  payasam,
+  spring,
+  workShop
+];
 
 export default function Events() {
   return (
@@ -29,7 +46,7 @@ export default function Events() {
           </Typography>
         </Box> */}
         <Grid container>
-          <Grid item xs={12} sm={4} md={4} lg={6}>
+          {/* <Grid item xs={12} sm={4} md={4} lg={6}>
             <Typography variant="h6" sx={{ paddingTop: 4 }}>
               We provide to you the best choiches for you. We provide you the
               necassary needs for your emergency . You can get hand from us at
@@ -38,7 +55,34 @@ export default function Events() {
           </Grid>
           <Grid item xs={12} sm={4} md={4} lg={6}>
             <img src={HelpingOthers} height="400px" />
-          </Grid>
+          </Grid> */}
+          <Box>
+            {/* <Grid
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              sx={{ paddingY: 8 }}
+            >
+              <Grid item>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={{ xs: 2, md: 3, lg: 30 }}
+                >
+                  <Grid item xs={12} sm={4} md={4} lg={4}>
+                    <ImageCard imageUrl={oneDay} />
+                  </Grid>
+
+                  <Grid item xs={12} sm={4} md={4} lg={4}>
+                    <ImageCard imageUrl={donate} />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid> */}
+          </Box>
           <Box>
             <Grid
               container
@@ -55,21 +99,18 @@ export default function Events() {
                   alignItems="center"
                   spacing={{ xs: 2, md: 3, lg: 30 }}
                 >
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <ImageCard  imageUrl={oneDay} />
-                  </Grid>
-                 
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <ImageCard  imageUrl={donate} />
-                  </Grid>
-                 
+                  {imageUrls.map((imageUrl, index) =>
+                    <Grid item xs={12} sm={4} md={4} lg={4}>
+                      <ImageCard imageUrl={imageUrl} />
+                    </Grid>
+                  )}
                 </Grid>
               </Grid>
             </Grid>
           </Box>
         </Grid>
       </Container>
-      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }}></Box>
+      <Box sx={{ backgroundColor: "#1380c2", minHeight: 300 }} />
     </PageWrapper>
   );
 }

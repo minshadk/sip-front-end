@@ -19,8 +19,8 @@ export default function ImageCard(props) {
   return (
     <Card
       sx={{
-        width: "270px",
-        paddingX: 2,
+        width: "390px",
+        // paddingX: 2,
         borderRadius: "5px",
         backgroundColor: "#fff",
         display: "flex",
@@ -32,7 +32,7 @@ export default function ImageCard(props) {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="100%"
+          height="500px"
           image={imageUrl}
         />
       </CardActionArea>
