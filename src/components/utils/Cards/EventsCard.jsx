@@ -97,15 +97,6 @@ export default function EventsCard(props) {
           image={imageUrl}
           alt="green iguana"
         />
-        {/* <CardMedia
-          component="img"
-          // height=""
-          // image="https://media.istockphoto.com/photos/fried-pork-and-vegetables-on-white-background-picture-id1190330112?k=20&m=1190330112&s=612x612&w=0&h=_TrmthJupdqYmMU-NC-es85TEvaBJsynDS383hqiAvM="
-          image={search}
-          alt="green iguana"
-          sx={{ objectFit: "cover", maxHeight:100,maxWidth:100}}
-        /> */}
-
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" sx={{color:"#333"}}>
             {title}

@@ -21,13 +21,13 @@ import workShop from "./../../Assets/Images/workShop.jpeg";
 
 const imageUrls = [
   donate,
+  payasam,
   oneDay,
-  alumin,
+  workShop,
   inspire,
   nirakute,
-  payasam,
   spring,
-  workShop
+  alumin,
 ];
 
 export default function Events() {
@@ -46,43 +46,6 @@ export default function Events() {
           </Typography>
         </Box> */}
         <Grid container>
-          {/* <Grid item xs={12} sm={4} md={4} lg={6}>
-            <Typography variant="h6" sx={{ paddingTop: 4 }}>
-              We provide to you the best choiches for you. We provide you the
-              necassary needs for your emergency . You can get hand from us at
-              any time at any where
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4} md={4} lg={6}>
-            <img src={HelpingOthers} height="400px" />
-          </Grid> */}
-          <Box>
-            {/* <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              sx={{ paddingY: 8 }}
-            >
-              <Grid item>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="center"
-                  spacing={{ xs: 2, md: 3, lg: 30 }}
-                >
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <ImageCard imageUrl={oneDay} />
-                  </Grid>
-
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <ImageCard imageUrl={donate} />
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid> */}
-          </Box>
           <Box>
             <Grid
               container

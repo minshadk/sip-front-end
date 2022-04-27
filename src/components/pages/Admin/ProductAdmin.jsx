@@ -51,22 +51,48 @@ export default function ProductAdmin() {
 
       <Box>
         <Grid
+          // container
+          // // spacing={{ xs: 2, md: 3 }}
+          // spacing={{ xs: 2, md: 3, lg: 15 }}
+          // sx={{ paddingTop: 8 }}
+          // columns={{ xs: 4, sm: 8, md: 12 }}
           container
-          // spacing={{ xs: 2, md: 3 }}
-          spacing={{ xs: 2, md: 3, lg: 15 }}
-          sx={{ paddingTop: 8 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ paddingY: 8 }}
         >
-          {products &&
+          {/* {products &&
             products.map((product, index) =>
               <Grid item xs={12} sm={6} md={3} lg={4}>
-                <ImageCard
+                <ServicesCard
                   title={product.name}
                   description={product.description}
                   imageUrl={product.image}
                 />
               </Grid>
-            )}
+            )} */}
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              spacing={{ xs: 2, md: 3, lg: 10 }}
+            >
+
+              {products &&
+                products.map((product, index) =>
+                  <Grid item xs={12} sm={6} md={3} lg={4}>
+                    <ServicesCard
+                      title={product.name}
+                      description={product.description}
+                      imageUrl={product.image}
+                    />
+                  </Grid>
+                )}
+            </Grid>
+          </Grid>
         </Grid>
       </Box>
     </PageWrapper>
