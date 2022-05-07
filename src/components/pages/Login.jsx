@@ -10,24 +10,6 @@ import TextInput from "../utils/Inputs/TextInput";
 // Importing backend services
 import userServices from "./../../services/userServices";
 
-// export default function Login() {
-//   return (
-//     <PageWrapper>
-//       <Grid
-//         container
-//         direction="row"
-//         justifyContent="center"
-//         alignItems="center"
-//         sx={{ height: "100vh" }}
-//       >
-//         <Grid item>
-//           <Typography>Login</Typography>
-//         </Grid>
-//       </Grid>
-//     </PageWrapper>
-//   );
-// }
-
 export default function Login() {
   const navigate = useNavigate();
 
@@ -77,9 +59,6 @@ export default function Login() {
       <Box>
         <Grid
           container
-          //   direction="column"
-          //   justifyContent="center"
-          //   alignItems="center"
           spacing={2}
           rowSpacing={2}
         >

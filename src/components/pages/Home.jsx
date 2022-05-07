@@ -179,15 +179,6 @@ const Home = () => {
               alignItems="center"
               spacing={{ xs: 2, md: 3, lg: 15 }}
             >
-              {/* <Grid item xs={12} sm={4} md={4} lg={4}>
-                <EventsCard />
-              </Grid>
-              <Grid item xs={12} sm={4} md={4} lg={4}>
-                <EventsCard />
-              </Grid>
-              <Grid item xs={12} sm={4} md={4} lg={4}>
-                <EventsCard />
-              </Grid> */}
               {products &&
                 products.map((product, index) =>
                   <Grid item xs={12} sm={4} md={4} lg={4} x>

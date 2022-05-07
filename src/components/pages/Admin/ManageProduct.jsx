@@ -30,21 +30,6 @@ export default function ManageProduct() {
   return (
     <PageWrapper>
       <Container maxWidth="md">
-        {/* <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <img
-            src={HelpingOthers}
-            //   srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            //   alt={item.title}
-            //   loading="lazy"
-          />
-        </Box> */}
         <Box>
           <Grid sx={{ fontSize: 30 }}>
             Product Name : {order && order.product.name}

@@ -30,12 +30,7 @@ export default function AddProduct() {
   };
 
   const handleSubmit = async () => {
-    // const data = {
-    //   name,
-    //   description,
-    //   minOrder
-    // };
-
+   
     const formData = new FormData()
     formData.append("name",name)
     formData.append("description",description)
